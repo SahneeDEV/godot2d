@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://images/Arm-2.png" type="Texture" id=1]
-[ext_resource path="res://images/Leg-1.png" type="Texture" id=2]
-[ext_resource path="res://images/Leg-2.png" type="Texture" id=3]
-[ext_resource path="res://images/Body.png" type="Texture" id=4]
-[ext_resource path="res://images/Arm-1.png" type="Texture" id=5]
-[ext_resource path="res://images/Head.png" type="Texture" id=6]
+[ext_resource path="res://images/characters/zombie/Arm-2.png" type="Texture" id=1]
+[ext_resource path="res://images/characters/zombie/Leg-1.png" type="Texture" id=2]
+[ext_resource path="res://images/characters/zombie/Leg-2.png" type="Texture" id=3]
+[ext_resource path="res://images/characters/zombie/Body.png" type="Texture" id=4]
+[ext_resource path="res://images/characters/zombie/Arm-1.png" type="Texture" id=5]
+[ext_resource path="res://images/characters/zombie/Head.png" type="Texture" id=6]
 [ext_resource path="res://jakobsPlayer.gd" type="Script" id=7]
 
 [node name="Player" type="Node2D"]

@@ -193,6 +193,7 @@
 10/z_index = 0
 
 [node name="DieNiceJakobScene" type="Node2D"]
+position = Vector2( -14.8158, 73.0204 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -218,14 +219,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Zoombie" parent="." instance=ExtResource( 2 )]
 position = Vector2( 945.577, -646.217 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 288.581, 49.1539 )
+position = Vector2( 234.609, 215.302 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
-position = Vector2( 3.44775, 1.17731 )
+position = Vector2( 94.6699, 3.98663 )
 current = true
 script = ExtResource( 4 )
 

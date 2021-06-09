@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/gassland.png" type="Texture" id=1]
 [ext_resource path="res://jakobsPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TheHero.tscn" type="PackedScene" id=3]
+[ext_resource path="res://JakobGeileCam.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=1]
 1/name = "gassland.png 1"
@@ -217,8 +219,14 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 200.34, 240.139 )
+position = Vector2( 945.577, -646.217 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -5.03406, 1.25842 )
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 288.581, 49.1539 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+position = Vector2( 3.44775, 1.17731 )
 current = true
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="KinematicBody2D/Camera2D"]

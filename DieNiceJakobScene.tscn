@@ -1,324 +1,24 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://images/gassland.png" type="Texture" id=1]
+[ext_resource path="res://tilesets/DieNiceJakobScene.tres" type="TileSet" id=1]
 [ext_resource path="res://jakobsPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TheHero.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/PlayerCamera.gd" type="Script" id=4]
-[ext_resource path="res://scripts/DieNiceJakobScene.gd" type="Script" id=5]
-
-[sub_resource type="NavigationPolygon" id=24]
-vertices = PoolVector2Array( 0, 32, 0, 32, 384, 32, 384, 224, 0, 224 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
-
-[sub_resource type="NavigationPolygon" id=25]
-vertices = PoolVector2Array( 0, 32, 0, 32, 384, 32, 384, 224, 0, 224, 0, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
-
-[sub_resource type="NavigationPolygon" id=26]
-vertices = PoolVector2Array( 0, 32, 384, 32, 384, 256, 0, 224 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=27]
-vertices = PoolVector2Array( -128, 384, -128, 384, -128, 640, 256, 640, 256, 384 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
-
-[sub_resource type="NavigationPolygon" id=28]
-vertices = PoolVector2Array( -128, 288, -128, 288, 256, 288, 256, 480, -128, 480 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
-
-[sub_resource type="NavigationPolygon" id=29]
-vertices = PoolVector2Array( -256, -128, 128, 0, 128, 128, -256, 128 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 32, 128, 32, 128, 128, 32, 128, 128 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=30]
-vertices = PoolVector2Array( 128, 128, 32, 128, 32, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=31]
-vertices = PoolVector2Array( 128, 128, 32, 128, 32, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=32]
-vertices = PoolVector2Array( 128, 128, 32, 128, 32, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=8]
-vertices = PoolVector2Array( 32, 0, 32, 0, 128, 96, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=33]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 32, 128, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=34]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=35]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=36]
-vertices = PoolVector2Array( 128, 0, 0, 0, 0, 96, 128, 96 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=37]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 32, 128, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=38]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=39]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=40]
-vertices = PoolVector2Array( 128, 96, 0, 96, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=41]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 32, 128, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=42]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=43]
-vertices = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=44]
-vertices = PoolVector2Array( 0, 0, 128, 0, 128, 96, 0, 96 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=19]
-vertices = PoolVector2Array( 0, 32, 0, 32, 0, 128, 96, 128, 0, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
-
-[sub_resource type="NavigationPolygon" id=45]
-vertices = PoolVector2Array( 96, 128, 0, 128, 0, 0, 96, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=46]
-vertices = PoolVector2Array( 96, 128, 0, 128, 0, 0, 96, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=47]
-vertices = PoolVector2Array( 96, 128, 0, 128, 0, 0, 96, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=23]
-vertices = PoolVector2Array( 0, 0, 0, 0, 96, 0, 0, 96 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="TileSet" id=1]
-1/name = "gassland.png 1"
-1/texture = ExtResource( 1 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 256, 896, 256, 256 )
-1/tile_mode = 2
-1/autotile/icon_coordinate = Vector2( 0, 0 )
-1/autotile/tile_size = Vector2( 128, 128 )
-1/autotile/spacing = 0
-1/autotile/occluder_map = [  ]
-1/autotile/navpoly_map = [  ]
-1/autotile/priority_map = [  ]
-1/autotile/z_index_map = [  ]
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "gassland.png 2"
-2/texture = ExtResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 128, 256, 384, 128 )
-2/tile_mode = 2
-2/autotile/icon_coordinate = Vector2( 0, 0 )
-2/autotile/tile_size = Vector2( 128, 128 )
-2/autotile/spacing = 0
-2/autotile/occluder_map = [  ]
-2/autotile/navpoly_map = [  ]
-2/autotile/priority_map = [  ]
-2/autotile/z_index_map = [  ]
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-4/name = "gassland.png 4"
-4/texture = ExtResource( 1 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 1280, 512, 256, 384 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
-6/name = "gassland.png 6"
-6/texture = ExtResource( 1 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 896, 384, 384, 256 )
-6/tile_mode = 1
-6/autotile/bitmask_mode = 0
-6/autotile/bitmask_flags = [ Vector2( 0, 2 ), 69, Vector2( 0, 3 ), 321, Vector2( 0, 4 ), 325, Vector2( 1, 2 ), 261, Vector2( 1, 3 ), 324, Vector2( 1, 4 ), 325, Vector2( 2, 0 ), 256, Vector2( 2, 1 ), 260, Vector2( 2, 2 ), 4, Vector2( 3, 0 ), 320, Vector2( 3, 1 ), 325, Vector2( 3, 2 ), 5, Vector2( 4, 0 ), 64, Vector2( 4, 1 ), 65, Vector2( 4, 2 ), 1 ]
-6/autotile/icon_coordinate = Vector2( 0, 4 )
-6/autotile/tile_size = Vector2( 128, 128 )
-6/autotile/spacing = 0
-6/autotile/occluder_map = [  ]
-6/autotile/navpoly_map = [ Vector2( 0, 0 ), SubResource( 25 ), Vector2( 2, 3 ), SubResource( 26 ), Vector2( 3, 0 ), SubResource( 27 ), Vector2( 3, 1 ), SubResource( 28 ), Vector2( 4, 4 ), SubResource( 29 ) ]
-6/autotile/priority_map = [  ]
-6/autotile/z_index_map = [  ]
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape_one_way = false
-6/shape_one_way_margin = 0.0
-6/shapes = [  ]
-6/z_index = 0
-7/name = "gassland.png 7"
-7/texture = ExtResource( 1 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 1280, 0, 768, 512 )
-7/tile_mode = 1
-7/autotile/bitmask_mode = 0
-7/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 260, Vector2( 0, 3 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 325, Vector2( 1, 3 ), 5, Vector2( 2, 0 ), 320, Vector2( 2, 1 ), 325, Vector2( 2, 2 ), 325, Vector2( 2, 3 ), 5, Vector2( 3, 0 ), 64, Vector2( 3, 1 ), 65, Vector2( 3, 2 ), 65, Vector2( 3, 3 ), 1, Vector2( 4, 0 ), 69, Vector2( 4, 1 ), 321, Vector2( 5, 0 ), 261, Vector2( 5, 1 ), 324 ]
-7/autotile/icon_coordinate = Vector2( 0, 0 )
-7/autotile/tile_size = Vector2( 128, 128 )
-7/autotile/spacing = 0
-7/autotile/occluder_map = [  ]
-7/autotile/navpoly_map = [  ]
-7/autotile/priority_map = [  ]
-7/autotile/z_index_map = [  ]
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "gassland.png 8"
-8/texture = ExtResource( 1 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 0, 0, 640, 640 )
-8/tile_mode = 1
-8/autotile/bitmask_mode = 0
-8/autotile/bitmask_flags = [ Vector2( 0, 0 ), 69, Vector2( 0, 1 ), 65, Vector2( 0, 2 ), 65, Vector2( 0, 3 ), 65, Vector2( 0, 4 ), 321, Vector2( 1, 0 ), 5, Vector2( 1, 1 ), 325, Vector2( 1, 4 ), 320, Vector2( 2, 0 ), 5, Vector2( 2, 1 ), 325, Vector2( 2, 4 ), 320, Vector2( 3, 0 ), 5, Vector2( 3, 1 ), 325, Vector2( 3, 4 ), 320, Vector2( 4, 0 ), 261, Vector2( 4, 1 ), 260, Vector2( 4, 2 ), 260, Vector2( 4, 3 ), 260, Vector2( 4, 4 ), 324, Vector2( 5, 0 ), 256, Vector2( 5, 1 ), 4, Vector2( 6, 0 ), 64, Vector2( 6, 1 ), 1 ]
-8/autotile/icon_coordinate = Vector2( 1, 1 )
-8/autotile/tile_size = Vector2( 128, 128 )
-8/autotile/spacing = 0
-8/autotile/occluder_map = [  ]
-8/autotile/navpoly_map = [ Vector2( 0, 0 ), SubResource( 4 ), Vector2( 0, 1 ), SubResource( 30 ), Vector2( 0, 2 ), SubResource( 31 ), Vector2( 0, 3 ), SubResource( 32 ), Vector2( 0, 4 ), SubResource( 8 ), Vector2( 1, 0 ), SubResource( 33 ), Vector2( 1, 1 ), SubResource( 34 ), Vector2( 1, 3 ), SubResource( 35 ), Vector2( 1, 4 ), SubResource( 36 ), Vector2( 2, 0 ), SubResource( 37 ), Vector2( 2, 1 ), SubResource( 38 ), Vector2( 2, 3 ), SubResource( 39 ), Vector2( 2, 4 ), SubResource( 40 ), Vector2( 3, 0 ), SubResource( 41 ), Vector2( 3, 1 ), SubResource( 42 ), Vector2( 3, 3 ), SubResource( 43 ), Vector2( 3, 4 ), SubResource( 44 ), Vector2( 4, 0 ), SubResource( 19 ), Vector2( 4, 1 ), SubResource( 45 ), Vector2( 4, 2 ), SubResource( 46 ), Vector2( 4, 3 ), SubResource( 47 ), Vector2( 4, 4 ), SubResource( 23 ) ]
-8/autotile/priority_map = [  ]
-8/autotile/z_index_map = [  ]
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
-9/name = "gassland.png 9"
-9/texture = ExtResource( 1 )
-9/tex_offset = Vector2( 0, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 0, 0, 896, 640 )
-9/tile_mode = 1
-9/autotile/bitmask_mode = 0
-9/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 260, Vector2( 0, 3 ), 260, Vector2( 0, 4 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 3 ), 325, Vector2( 1, 4 ), 5, Vector2( 2, 0 ), 320, Vector2( 2, 3 ), 325, Vector2( 2, 4 ), 5, Vector2( 3, 0 ), 320, Vector2( 3, 3 ), 325, Vector2( 3, 4 ), 5, Vector2( 4, 0 ), 64, Vector2( 4, 1 ), 65, Vector2( 4, 2 ), 65, Vector2( 4, 3 ), 65, Vector2( 4, 4 ), 1, Vector2( 5, 0 ), 69, Vector2( 5, 1 ), 321, Vector2( 6, 0 ), 261, Vector2( 6, 1 ), 324 ]
-9/autotile/icon_coordinate = Vector2( 2, 3 )
-9/autotile/tile_size = Vector2( 128, 128 )
-9/autotile/spacing = 0
-9/autotile/occluder_map = [  ]
-9/autotile/navpoly_map = [  ]
-9/autotile/priority_map = [  ]
-9/autotile/z_index_map = [  ]
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape_one_way = false
-9/shape_one_way_margin = 0.0
-9/shapes = [  ]
-9/z_index = 0
-10/name = "gassland.png 10"
-10/texture = ExtResource( 1 )
-10/tex_offset = Vector2( 0, 0 )
-10/modulate = Color( 1, 1, 1, 1 )
-10/region = Rect2( 1280, 896, 768, 512 )
-10/tile_mode = 1
-10/autotile/bitmask_mode = 0
-10/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 260, Vector2( 0, 3 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 325, Vector2( 1, 3 ), 5, Vector2( 2, 0 ), 320, Vector2( 2, 1 ), 325, Vector2( 2, 2 ), 325, Vector2( 2, 3 ), 5, Vector2( 3, 0 ), 64, Vector2( 3, 1 ), 65, Vector2( 3, 2 ), 65, Vector2( 3, 3 ), 1, Vector2( 4, 0 ), 69, Vector2( 4, 1 ), 321, Vector2( 5, 0 ), 261, Vector2( 5, 1 ), 324 ]
-10/autotile/icon_coordinate = Vector2( 0, 0 )
-10/autotile/tile_size = Vector2( 128, 128 )
-10/autotile/spacing = 0
-10/autotile/occluder_map = [  ]
-10/autotile/navpoly_map = [  ]
-10/autotile/priority_map = [  ]
-10/autotile/z_index_map = [  ]
-10/occluder_offset = Vector2( 0, 0 )
-10/navigation_offset = Vector2( 0, 0 )
-10/shape_offset = Vector2( 0, 0 )
-10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape_one_way = false
-10/shape_one_way_margin = 0.0
-10/shapes = [  ]
-10/z_index = 0
-11/name = "gassland.png 11"
-11/texture = ExtResource( 1 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 896, 384, 384, 256 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/navigation = SubResource( 24 )
-11/shape_offset = Vector2( 0, 0 )
-11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-11/shape_one_way = false
-11/shape_one_way_margin = 0.0
-11/shapes = [  ]
-11/z_index = 0
+[ext_resource path="res://DieNiceJakobScene.gd" type="Script" id=4]
 
 [node name="DieNiceJakobScene" type="Node2D"]
-visible = false
 position = Vector2( -14.8158, 73.0204 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
-tile_data = PoolIntArray( -589825, 10, 0, -655360, 10, 2, -655359, 10, 1, -655358, 10, 2, -655357, 10, 2, -655356, 10, 1, -655355, 10, 1, -655354, 10, 1, -655353, 10, 2, -655352, 10, 1, -655351, 10, 2, -655350, 10, 2, -655349, 10, 2, -655348, 10, 2, -655347, 10, 3, -524289, 10, 65536, -589824, 10, 65537, -589823, 10, 65537, -589822, 10, 65538, -589821, 10, 65537, -589820, 10, 65538, -589819, 10, 65537, -589818, 10, 65537, -589817, 10, 131073, -589816, 10, 131073, -589815, 10, 65538, -589814, 10, 65538, -589813, 10, 65537, -589812, 10, 131073, -589811, 10, 131075, -458753, 10, 131072, -524288, 10, 131073, -524287, 10, 65538, -524286, 10, 131073, -524285, 10, 65538, -524284, 10, 131073, -524283, 10, 4, -524282, 10, 196610, -524281, 10, 196610, -524280, 10, 196610, -524279, 10, 196610, -524278, 10, 196609, -524277, 10, 196610, -524276, 10, 196609, -524275, 10, 196611, -393217, 10, 65536, -458752, 10, 131073, -458751, 10, 65537, -458750, 10, 131074, -458749, 10, 131074, -458748, 10, 131073, -458747, 10, 131075, -458746, 9, 0, -458745, 9, 2, -458744, 9, 1, -458743, 9, 3, -458742, 9, 3, -458741, 9, 1, -458740, 9, 2, -458739, 9, 4, -327681, 10, 131072, -393216, 10, 65538, -393215, 10, 65538, -393214, 10, 65538, -393213, 10, 131073, -393212, 10, 131073, -393211, 10, 131075, -393210, 9, 65536, -393209, 9, 196610, -393208, 9, 196610, -393207, 9, 196610, -393206, 9, 196611, -393205, 9, 196611, -393204, 9, 196610, -393203, 9, 131076, -262145, 10, 131072, -327680, 10, 131074, -327679, 10, 131073, -327678, 10, 131073, -327677, 10, 131073, -327676, 10, 131074, -327675, 10, 65539, -327674, 9, 65536, -327673, 9, 196611, -327672, 9, 196610, -327671, 9, 196610, -327670, 9, 196611, -327669, 9, 196611, -327668, 9, 196609, -327667, 9, 65540, -196609, 10, 131072, -262144, 10, 65538, -262143, 10, 65538, -262142, 10, 65537, -262141, 10, 131074, -262140, 10, 131074, -262139, 10, 131075, -262138, 9, 262144, -262137, 9, 262146, -262136, 9, 262146, -262135, 9, 262147, -262134, 9, 262145, -262133, 9, 262146, -262132, 9, 262147, -262131, 9, 262148, -131073, 10, 196608, -196608, 10, 196610, -196607, 10, 196610, -196606, 10, 196610, -196605, 10, 196610, -196604, 10, 196609, -196603, 10, 196611, -196602, 7, 0, -196601, 7, 1, -196600, 7, 2, -196599, 7, 2, -196598, 7, 2, -196597, 7, 1, -196596, 7, 1, -196595, 7, 3, -65537, 7, 0, -131072, 7, 1, -131071, 7, 2, -131070, 7, 2, -131069, 7, 1, -131068, 7, 2, -131067, 7, 2, -131066, 7, 65541, -131065, 7, 131074, -131064, 7, 65537, -131063, 7, 4, -131062, 7, 196609, -131061, 7, 196610, -131060, 7, 5, -131059, 7, 131075, -1, 7, 131072, -65536, 7, 4, -65535, 7, 196610, -65534, 7, 196609, -65533, 7, 196610, -65532, 7, 196609, -65531, 7, 196609, -65530, 7, 196609, -65529, 7, 5, -65528, 7, 65538, -65527, 7, 65539, -65526, 8, 5, -65525, 8, 6, -65524, 7, 131072, -65523, 7, 131075, 65535, 7, 65536, 0, 7, 65539, 1, 8, 5, 2, 8, 262146, 3, 8, 262145, 4, 8, 262145, 5, 8, 262145, 6, 8, 6, 7, 7, 65536, 8, 7, 131074, 9, 7, 131075, 10, 8, 131076, 11, 8, 65536, 12, 7, 65536, 13, 7, 131075, 131071, 7, 65536, 65536, 7, 65539, 65537, 8, 131076, 65538, 8, 65539, 65539, 8, 65538, 65540, 8, 65538, 65541, 8, 65538, 65542, 8, 131072, 65543, 7, 131072, 65544, 7, 65538, 65545, 7, 65539, 65546, 8, 196612, 65547, 8, 196608, 65548, 7, 65536, 65549, 7, 65539, 196607, 7, 131072, 131072, 7, 131075, 131073, 8, 196612, 131074, 8, 65539, 131075, 8, 65539, 131076, 8, 65538, 131077, 8, 65538, 131078, 8, 131072, 131079, 7, 65536, 131080, 7, 65538, 131081, 7, 65539, 131082, 8, 196612, 131083, 8, 131072, 131084, 7, 65536, 131085, 7, 131075, 262143, 7, 65536, 196608, 7, 131075, 196609, 8, 65541, 196610, 8, 1, 196611, 8, 1, 196612, 8, 3, 196613, 8, 3, 196614, 8, 65542, 196615, 7, 65536, 196616, 7, 65537, 196617, 7, 131075, 196618, 8, 196612, 196619, 8, 131072, 196620, 7, 131072, 196621, 7, 65539, 327679, 7, 65536, 262144, 7, 65540, 262145, 7, 1, 262146, 7, 1, 262147, 7, 1, 262148, 7, 1, 262149, 7, 1, 262150, 7, 2, 262151, 7, 65541, 262152, 7, 131074, 262153, 7, 131075, 262154, 8, 131076, 262155, 8, 131072, 262156, 7, 65536, 262157, 7, 65539, 393215, 7, 131072, 327680, 7, 65538, 327681, 7, 65538, 327682, 7, 131074, 327683, 7, 65538, 327684, 7, 65538, 327685, 7, 65538, 327686, 7, 65538, 327687, 7, 131073, 327688, 7, 65537, 327689, 7, 131075, 327690, 8, 65541, 327691, 8, 65542, 327692, 7, 65536, 327693, 7, 131075, 458751, 7, 65536, 393216, 7, 65538, 393217, 7, 131074, 393218, 7, 131074, 393219, 7, 131074, 393220, 7, 131074, 393221, 7, 131074, 393222, 7, 65538, 393223, 7, 131074, 393224, 7, 65537, 393225, 7, 65540, 393226, 7, 2, 393227, 7, 2, 393228, 7, 65541, 393229, 7, 65539, 524287, 7, 196608, 458752, 7, 196610, 458753, 7, 196610, 458754, 7, 196610, 458755, 7, 196609, 458756, 7, 196609, 458757, 7, 196609, 458758, 7, 196609, 458759, 7, 196609, 458760, 7, 196609, 458761, 7, 196609, 458762, 7, 196610, 458763, 7, 196610, 458764, 7, 196610, 458765, 7, 196611 )
+tile_data = PoolIntArray( -589825, 10, 0, -655360, 10, 2, -655359, 10, 1, -655358, 10, 2, -655357, 10, 2, -655356, 10, 1, -655355, 10, 1, -655354, 10, 1, -655353, 10, 2, -655352, 10, 1, -655351, 10, 2, -655350, 10, 2, -655349, 10, 2, -655348, 10, 2, -655347, 10, 3, -524289, 10, 65536, -589824, 10, 65537, -589823, 10, 65537, -589822, 10, 65538, -589821, 10, 65537, -589820, 10, 65538, -589819, 10, 65537, -589818, 10, 65537, -589817, 10, 131073, -589816, 10, 131073, -589815, 10, 65538, -589814, 10, 65538, -589813, 10, 65537, -589812, 10, 131073, -589811, 10, 131075, -458753, 10, 131072, -524288, 10, 131073, -524287, 10, 65538, -524286, 10, 131073, -524285, 10, 65538, -524284, 10, 131073, -524283, 10, 4, -524282, 10, 196610, -524281, 10, 196610, -524280, 10, 196610, -524279, 10, 196610, -524278, 10, 196609, -524277, 10, 196610, -524276, 10, 196609, -524275, 10, 196611, -393217, 10, 65536, -458752, 10, 131073, -458751, 10, 65537, -458750, 10, 131074, -458749, 10, 131074, -458748, 10, 131073, -458747, 10, 131075, -458746, 9, 0, -458745, 9, 1, -458744, 9, 1, -458743, 9, 1, -458742, 9, 1, -458741, 9, 1, -458740, 9, 2, -458739, 9, 4, -327681, 10, 131072, -393216, 10, 65538, -393215, 10, 65538, -393214, 10, 65538, -393213, 10, 131073, -393212, 10, 131073, -393211, 10, 131075, -393210, 9, 65536, -393209, 9, 196611, -393208, 9, 196610, -393207, 9, 196609, -393206, 9, 196610, -393205, 9, 196611, -393204, 9, 196610, -393203, 9, 131076, -262145, 10, 131072, -327680, 10, 131074, -327679, 10, 131073, -327678, 10, 131073, -327677, 10, 131073, -327676, 10, 131074, -327675, 10, 65539, -327674, 9, 65536, -327673, 9, 196609, -327672, 9, 196609, -327671, 9, 196611, -327670, 9, 196609, -327669, 9, 196611, -327668, 9, 196609, -327667, 9, 65540, -196609, 10, 131072, -262144, 10, 65538, -262143, 10, 65538, -262142, 10, 65537, -262141, 10, 131074, -262140, 10, 131074, -262139, 10, 131075, -262138, 9, 262144, -262137, 9, 262146, -262136, 9, 262147, -262135, 9, 262147, -262134, 9, 262145, -262133, 9, 262146, -262132, 9, 262147, -262131, 9, 262148, -131073, 10, 196608, -196608, 10, 196610, -196607, 10, 196610, -196606, 10, 196610, -196605, 10, 196610, -196604, 10, 196609, -196603, 10, 196611, -196602, 7, 0, -196601, 7, 1, -196600, 7, 2, -196599, 7, 2, -196598, 7, 2, -196597, 7, 1, -196596, 7, 1, -196595, 7, 3, -65537, 7, 0, -131072, 7, 1, -131071, 7, 2, -131070, 7, 2, -131069, 7, 1, -131068, 7, 2, -131067, 7, 2, -131066, 7, 65541, -131065, 7, 131074, -131064, 7, 65537, -131063, 7, 4, -131062, 7, 196609, -131061, 7, 196610, -131060, 7, 5, -131059, 7, 131075, -1, 7, 131072, -65536, 7, 4, -65535, 7, 196610, -65534, 7, 196609, -65533, 7, 196610, -65532, 7, 196609, -65531, 7, 196609, -65530, 7, 196609, -65529, 7, 5, -65528, 7, 65538, -65527, 7, 65539, -65526, 8, 5, -65525, 8, 6, -65524, 7, 131072, -65523, 7, 131075, 65535, 7, 65536, 0, 7, 65539, 1, 8, 5, 2, 8, 262146, 3, 8, 262145, 4, 8, 262145, 5, 8, 262145, 6, 8, 6, 7, 7, 65536, 8, 7, 131074, 9, 7, 131075, 10, 8, 131076, 11, 8, 65536, 12, 7, 65536, 13, 7, 131075, 131071, 7, 65536, 65536, 7, 65539, 65537, 8, 131076, 65538, 8, 65539, 65539, 8, 65538, 65540, 8, 65538, 65541, 8, 65538, 65542, 8, 131072, 65543, 7, 131072, 65544, 7, 65538, 65545, 7, 65539, 65546, 8, 196612, 65547, 8, 196608, 65548, 7, 65536, 65549, 7, 65539, 196607, 7, 131072, 131072, 7, 131075, 131073, 8, 196612, 131074, 8, 65539, 131075, 8, 65539, 131076, 8, 65538, 131077, 8, 65538, 131078, 8, 131072, 131079, 7, 65536, 131080, 7, 65538, 131081, 7, 65539, 131082, 8, 196612, 131083, 8, 131072, 131084, 7, 65536, 131085, 7, 131075, 262143, 7, 65536, 196608, 7, 131075, 196609, 8, 65541, 196610, 8, 1, 196611, 8, 1, 196612, 8, 3, 196613, 8, 3, 196614, 8, 65542, 196615, 7, 65536, 196616, 7, 65537, 196617, 7, 131075, 196618, 8, 196612, 196619, 8, 131072, 196620, 7, 131072, 196621, 7, 65539, 327679, 7, 65536, 262144, 7, 65540, 262145, 7, 1, 262146, 7, 1, 262147, 7, 1, 262148, 7, 1, 262149, 7, 1, 262150, 7, 2, 262151, 7, 65541, 262152, 7, 131074, 262153, 7, 131075, 262154, 8, 131076, 262155, 8, 131072, 262156, 7, 65536, 262157, 7, 65539, 393215, 7, 131072, 327680, 7, 65538, 327681, 7, 65538, 327682, 7, 131074, 327683, 7, 65538, 327684, 7, 65538, 327685, 7, 65538, 327686, 7, 65538, 327687, 7, 131073, 327688, 7, 65537, 327689, 7, 131075, 327690, 8, 65541, 327691, 8, 65542, 327692, 7, 65536, 327693, 7, 131075, 458751, 7, 65536, 393216, 7, 65538, 393217, 7, 131074, 393218, 7, 131074, 393219, 7, 131074, 393220, 7, 131074, 393221, 7, 131074, 393222, 7, 65538, 393223, 7, 131074, 393224, 7, 65537, 393225, 7, 65540, 393226, 7, 2, 393227, 7, 2, 393228, 7, 65541, 393229, 7, 65539, 524287, 7, 196608, 458752, 7, 196610, 458753, 7, 196610, 458754, 7, 196610, 458755, 7, 196609, 458756, 7, 196609, 458757, 7, 196609, 458758, 7, 196609, 458759, 7, 196609, 458760, 7, 196609, 458761, 7, 196609, 458762, 7, 196610, 458763, 7, 196610, 458764, 7, 196610, 458765, 7, 196611 )
 
 [node name="TileMap2" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -262134, 4, 0, -65525, 1, 65536, 6, 2, 0, 65540, 1, 65536, 65543, 11, 0, 196609, 1, 65537, 196614, 2, 1, 262155, 1, 65537, 327691, 1, 1 )
@@ -328,7 +28,7 @@ __meta__ = {
 
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -655347, 2, 2, -524275, 2, 1, -458746, 2, 0, -458739, 2, 1, -262138, 1, 0, -262131, 1, 65536, -196603, 1, 65537 )
@@ -337,29 +37,14 @@ __meta__ = {
 }
 
 [node name="Zoombie" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 1348.26, -666.411 )
+position = Vector2( 1348.97, -667.824 )
 scale = Vector2( 0.25, 0.25 )
+
+[node name="Camera2D" type="Camera2D" parent="Zoombie"]
+current = true
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 207.857, 211.125 )
+position = Vector2( 179.573, 203.583 )
 scale = Vector2( 0.25, 0.25 )
-
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
-position = Vector2( 94.6699, 3.98663 )
-current = true
-script = ExtResource( 4 )
-
-[node name="Tween" type="Tween" parent="KinematicBody2D/Camera2D"]
-
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
-tile_set = SubResource( 1 )
-cell_size = Vector2( 128, 128 )
-format = 1
-__meta__ = {
-"_editor_description_": ""
-}
 
 [node name="Line2D" type="Line2D" parent="."]

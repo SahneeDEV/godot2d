@@ -1,5 +1,8 @@
-extends Sprite
+extends RigidBody2D
+class_name Enemy
 
+# The health of the enemy
+export var hp = 100
 # The move speed
 export var speed = 200
 # The distance to the target at which to stop moving
@@ -24,6 +27,8 @@ func _process(delta):
 			return
 		var next_pos = cpos.linear_interpolate(p, speed * delta / dist)
 		global_position = next_pos
+	if hp <= 0:
+		queue_free()
 	if draw_path:
 		update()
 
@@ -31,6 +36,17 @@ func _draw():
 	if draw_path:
 		for p in points:
 			draw_circle(to_local(p), 25, Color(1, 0, 0))
+			
+func apply_damage(to: Base):
+	to.take_damage(ceil(hp / 10))
+	queue_free()
+			
+func take_damage(damage):
+	hp -= damage
+	print(self.name + " took damage! " + String(hp))
+	
+func is_tower_target(tower):
+	return true
 
 func set_target(new_target):
 	target = new_target

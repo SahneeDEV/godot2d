@@ -8,6 +8,40 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Base",
+"language": "GDScript",
+"path": "res://scripts/Base.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/Enemy.gd"
+}, {
+"base": "Node",
+"class": "EnemySpawner",
+"language": "GDScript",
+"path": "res://scripts/EnemySpawner.gd"
+}, {
+"base": "Camera2D",
+"class": "PlayerCamera",
+"language": "GDScript",
+"path": "res://scripts/PlayerCamera.gd"
+}, {
+"base": "Node",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://scripts/Tower.gd"
+} ]
+_global_script_class_icons={
+"Base": "",
+"Enemy": "",
+"EnemySpawner": "",
+"PlayerCamera": "",
+"Tower": ""
+}
+
 [application]
 
 config/name="Godot 2d"

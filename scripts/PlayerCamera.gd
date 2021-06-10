@@ -1,4 +1,5 @@
 extends Camera2D
+class_name PlayerCamera
 
 ######################################################################################################
 ######################################################################################################
@@ -59,7 +60,6 @@ func _unhandled_input(event):
 func _process(delta):
 	vel = Vector2()
 	if Input.is_action_pressed("move_right"):
-		print("move right")
 		vel.x += 1
 	if Input.is_action_pressed("move_left"):
 		vel.x -= 1

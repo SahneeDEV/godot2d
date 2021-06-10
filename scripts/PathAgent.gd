@@ -2,7 +2,7 @@
 extends Sprite
 
 export var speed = 200
-const eps = 1.5
+const eps = 10
 var points = []
 
 func _ready():
@@ -14,11 +14,13 @@ func _process(delta):
 	if points.size() > 1:
 		var p = points[1]
 		var dist = cpos.distance_to(p)
+		if dist < eps && points.size() == 2:
+			return
 		var next_pos = cpos.linear_interpolate(p, speed * delta / dist)
-		print("cpos is " + String(cpos))
-		print("p is " + String(p))
-		print("next_pos is " + String(next_pos))
-		print(" ---- ")
+#		print("cpos is " + String(cpos))
+#		print("p is " + String(p))
+#		print("next_pos is " + String(next_pos))
+#		print(" ---- ")
 		global_position = next_pos
 	update()
 

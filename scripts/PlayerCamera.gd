@@ -1,6 +1,10 @@
 extends Camera2D
 
-
+######################################################################################################
+######################################################################################################
+# Hallo Jakob, ich habe Deine Camera umbenannt und mit WASD Logik erweitert, da ich auch eine gebraucht habe <3
+######################################################################################################
+######################################################################################################
 
 # Lower cap for the `_zoom_level`.
 export var min_zoom := 0.5
@@ -10,12 +14,22 @@ export var max_zoom := 2.0
 export var zoom_factor := 0.1
 # Duration of the zoom's tween animation.
 export var zoom_duration := 0.2
+# transition
+export var zoom_ease := true
+# move speed
+export var speed := 1000
 
 # The camera's target zoom level.
 var _zoom_level := 1.0 setget _set_zoom_level
 
+# Camera move speed
+var vel = Vector2()
+
 # We store a reference to the scene's tween node.
 onready var tween: Tween = $Tween
+
+func _ready():
+	set_process(true)
 
 func _set_zoom_level(value: float) -> void:
 	# We limit the value between `min_zoom` and `max_zoom`
@@ -28,7 +42,7 @@ func _set_zoom_level(value: float) -> void:
 		zoom,
 		Vector2(_zoom_level, _zoom_level),
 		zoom_duration,
-		tween.TRANS_SINE,
+		tween.TRANS_SINE if zoom_ease else Tween.TRANS_LINEAR,
 		# Easing out means we start fast and slow down as we reach the target value.
 		tween.EASE_OUT
 	)
@@ -41,3 +55,21 @@ func _unhandled_input(event):
 		_set_zoom_level(_zoom_level - zoom_factor)
 	if event.is_action_pressed("zoom_out"):
 		_set_zoom_level(_zoom_level + zoom_factor)
+	
+func _process(delta):
+	vel = Vector2()
+	if Input.is_action_pressed("move_right"):
+		print("move right")
+		vel.x += 1
+	if Input.is_action_pressed("move_left"):
+		vel.x -= 1
+	if Input.is_action_pressed("move_up"):
+		vel.y -= 1
+	if Input.is_action_pressed("move_down"):
+		vel.y += 1
+		
+	if vel.length() > 0:
+	   vel = vel.normalized() * speed
+	position += vel * delta
+	
+

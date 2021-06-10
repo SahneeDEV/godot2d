@@ -6,7 +6,8 @@ extends Node2D
 var speed = 150
 var vel = Vector2()
 
-	
+
+
 # Called when the node enters the scene tree for the first time.
 # func _process(delta):
 #	vel = Vector2() #set vel to Vector2(0, 0)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://images/bat_sprite_animated.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scenes/mob_lukas.gd" type="Script" id=2]
+[ext_resource path="res://images/__Bat01_Fly_006.png" type="Texture" id=3]
+[ext_resource path="res://images/__Bat01_Fly_004.png" type="Texture" id=4]
+[ext_resource path="res://images/__Bat01_Fly_003.png" type="Texture" id=5]
+[ext_resource path="res://images/__Bat01_Fly_000.png" type="Texture" id=6]
+[ext_resource path="res://images/__Bat01_Fly_007.png" type="Texture" id=7]
+[ext_resource path="res://images/__Bat01_Fly_005.png" type="Texture" id=8]
+[ext_resource path="res://images/__Bat01_Fly_001.png" type="Texture" id=9]
+[ext_resource path="res://images/__Bat01_Fly_002.png" type="Texture" id=10]
+[ext_resource path="res://sounds/GAME_MENU_SCORE_SFX001580.wav" type="AudioStream" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.4395, 22.0135 )
+
+[node name="mob" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="mob0" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="mob1" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = ExtResource( 1 )
+animation = "fliegen"
+frame = 5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.094604 )
+shape = SubResource( 2 )
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )

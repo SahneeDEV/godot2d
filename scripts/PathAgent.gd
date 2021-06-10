@@ -1,8 +1,13 @@
-
 extends Sprite
 
+# The move speed
 export var speed = 200
-const eps = 10
+# The distance to the target at which to stop moving
+export var eps = 10
+# Draw the path using debug dots
+export var draw_path = false
+
+var target := Vector2(0, 0) setget set_target
 var points = []
 
 func _ready():
@@ -10,20 +15,28 @@ func _ready():
 
 func _process(delta):
 	var cpos = global_position
-	points = get_node("../Navigation2D").get_simple_path(cpos, get_global_mouse_position(), true)
-	if points.size() > 1:
-		var p = points[1]
+	if points.size() > 0:
+		var p = points[0]
 		var dist = cpos.distance_to(p)
-		if dist < eps && points.size() == 2:
+		if dist < eps:
+			points.remove(0)
+		if dist == 0:
 			return
 		var next_pos = cpos.linear_interpolate(p, speed * delta / dist)
-#		print("cpos is " + String(cpos))
-#		print("p is " + String(p))
-#		print("next_pos is " + String(next_pos))
-#		print(" ---- ")
 		global_position = next_pos
-	update()
+	if draw_path:
+		update()
 
 func _draw():
-	for p in points:
-		draw_circle(to_local(p), 25, Color(1, 0, 0))
+	if draw_path:
+		for p in points:
+			draw_circle(to_local(p), 25, Color(1, 0, 0))
+
+func set_target(new_target):
+	target = new_target
+	var nav2d = get_nav2d()
+	var cpos = global_position
+	points = nav2d.get_simple_path(cpos, target, true)
+
+func get_nav2d():
+	return  get_tree().get_root().get_node("./World/Navigation2D")

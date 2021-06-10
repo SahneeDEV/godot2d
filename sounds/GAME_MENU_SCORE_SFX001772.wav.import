@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GAME_MENU_SCORE_SFX001772.wav-f11d225cc2e66b24ac29fe7b7f6b64c8.sample"
+
+[deps]
+
+source_file="res://sounds/GAME_MENU_SCORE_SFX001772.wav"
+dest_files=[ "res://.import/GAME_MENU_SCORE_SFX001772.wav-f11d225cc2e66b24ac29fe7b7f6b64c8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

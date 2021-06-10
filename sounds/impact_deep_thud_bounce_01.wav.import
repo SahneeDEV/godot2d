@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/impact_deep_thud_bounce_01.wav-af3f6e10099f577a15810afa1b4f47e9.sample"
+
+[deps]
+
+source_file="res://sounds/impact_deep_thud_bounce_01.wav"
+dest_files=[ "res://.import/impact_deep_thud_bounce_01.wav-af3f6e10099f577a15810afa1b4f47e9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

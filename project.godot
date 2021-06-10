@@ -33,19 +33,25 @@ _global_script_classes=[ {
 "class": "Tower",
 "language": "GDScript",
 "path": "res://scripts/Tower.gd"
+}, {
+"base": "Node2D",
+"class": "TowerManager",
+"language": "GDScript",
+"path": "res://scripts/TowerManager.gd"
 } ]
 _global_script_class_icons={
 "Base": "",
 "Enemy": "",
 "EnemySpawner": "",
 "PlayerCamera": "",
-"Tower": ""
+"Tower": "",
+"TowerManager": ""
 }
 
 [application]
 
 config/name="Godot 2d"
-run/main_scene="res://Scenes/LukasSuperGeileMap.tscn"
+run/main_scene="res://Scenes/SuperSecretPatrickScene.tscn"
 boot_splash/image="res://images/logo_sahne_offiziell.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"

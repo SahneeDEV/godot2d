@@ -28,6 +28,10 @@ func _on_body_exited(body):
 func _on_rearm():
 	print("Tower " + self.name + " rearmed!")
 	armed = true
+	
+## Can this tower be placed at the given location?
+func is_placeable(tower, map_position, global_position, current_state, cell):
+	return current_state == null
 
 ## Checks if the given body is a valid enemy for this tower.
 func is_tower_target(body):

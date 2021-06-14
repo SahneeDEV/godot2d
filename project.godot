@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot 2d"
-run/main_scene="res://Scenes/SuperSecretPatrickScene.tscn"
+run/main_scene="res://scenes/Game.tscn"
 boot_splash/image="res://images/logo_sahne_offiziell.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"

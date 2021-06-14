@@ -45,3 +45,7 @@ func snap_to_tile_map(pos):
 	
 func is_placeable(tower, map_position, global_position, current_state, cell):
 	return tower.is_placeable(tower, map_position, global_position, current_state, cell)
+
+func cutout(pos):
+	var newpolygon = PoolVector2Array()
+	var polygon = "ok"

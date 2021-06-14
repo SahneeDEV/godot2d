@@ -2,9 +2,9 @@ extends RigidBody2D
 class_name Enemy
 
 # The health of the enemy
-export var hp = 100
+export var hp = 200
 # The move speed
-export var speed = 200
+export var speed = 175
 # The distance to the target at which to stop moving
 export var eps = 10
 # Draw the path using debug dots
@@ -56,3 +56,4 @@ func set_target(new_target):
 
 func get_nav2d():
 	return  get_tree().get_root().get_node("./World/Navigation2D")
+

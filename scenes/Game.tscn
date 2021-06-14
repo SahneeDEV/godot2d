@@ -1,12 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://enemies/Enemy_Professor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/Enemy_Crow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tilesets/gasslands.tres" type="TileSet" id=3]
 [ext_resource path="res://tilesets/details.tres" type="TileSet" id=4]
 [ext_resource path="res://scripts/Base.gd" type="Script" id=5]
 [ext_resource path="res://scripts/TowerManager.gd" type="Script" id=6]
 [ext_resource path="res://scripts/PlayerCamera.gd" type="Script" id=7]
 [ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=8]
+[ext_resource path="res://enemies/Enemy_Skeleton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemies/Emeny_Gorilla.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemies/Enemy_Bandit.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemies/Enemy_Goblin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemies/Enemy_GrimReaper.tscn" type="PackedScene" id=13]
+[ext_resource path="res://enemies/Enemy_Wolf.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 183.723, 208.978 )
@@ -47,7 +54,7 @@ speed = 3000
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource( 8 )
-enemies = [ ExtResource( 1 ) ]
+enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
 
 [node name="Location" type="Node2D" parent="EnemySpawner"]
 position = Vector2( 701.141, 106.321 )

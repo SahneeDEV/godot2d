@@ -22,4 +22,3 @@ func randomize_speed(instance):
 	var speed = instance.speed
 	speed = rng.randf_range(speed * speed_multiplier.x, speed * speed_multiplier.y)
 	instance.speed = speed
-	

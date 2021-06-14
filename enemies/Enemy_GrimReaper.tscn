@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://images/GrimReaper/__Grim_Move_003.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://images/GrimReaper/__Grim_Move_000.png" type="Texture" id=7]
 [ext_resource path="res://images/GrimReaper/__Grim_Move_001.png" type="Texture" id=8]
 [ext_resource path="res://images/GrimReaper/__Grim_Move_002.png" type="Texture" id=9]
+[ext_resource path="res://images/characters/healthbars/Bar_Green_Front.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
@@ -23,6 +24,7 @@ animations = [ {
 
 [node name="Enemy" type="RigidBody2D"]
 script = ExtResource( 1 )
+speed = 155
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 40 )
@@ -32,5 +34,19 @@ shape = SubResource( 1 )
 position = Vector2( 0, -24 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
-frame = 6
+frame = 4
 playing = true
+
+[node name="Health" type="Node2D" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="Health"]
+margin_left = -204.0
+margin_top = -204.0
+margin_right = 476.0
+margin_bottom = -134.0
+rect_scale = Vector2( 0.6, 0.8 )
+value = 100.0
+texture_progress = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -33,7 +33,8 @@ func _ready():
 	rebuild_grid()
 	
 func rebuild_grid():
-	print("[FlowField] Rebuilding grid with tile map " + tile_map.name)
+	var valid_tiles = tile_map.tile_set.get_tiles_ids()
+	print("[FlowField] Rebuilding grid with tile map " + tile_map.name + " with tile IDs " + String(valid_tiles))
 	size = int(tile_map.cell_size.x)
 	grid = []
 	for x in size:
@@ -42,7 +43,7 @@ func rebuild_grid():
 			var cell = tile_map.get_cell(x, y)
 			var cell_autotile = tile_map.get_cell_autotile_coord(x, y)
 			var cost = GRID_IMPASSABLE
-			if cell != -1:
+			if valid_tiles.find(cell) != -1:
 				var poly = tile_map.tile_set.autotile_get_navigation_polygon(cell, cell_autotile)
 				if poly != null && poly.get_polygon_count() > 0:
 					cost = GRID_PASSABLE

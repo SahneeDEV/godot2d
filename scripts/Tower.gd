@@ -11,6 +11,18 @@ func _ready():
 	$Range.connect("body_exited", self, "_on_body_exited")
 	$RearmTimer.connect("timeout", self, "_on_rearm")
 	set_process(true)
+	#hide tower border radius if forgotten
+	$Range/CollisionShape2D/Sprite.visible = false;
+	
+func _input(event):
+	#show tower range on right click
+	if event.is_action_pressed("click_right"):
+		#check that only the selected tower gets highlighted
+		#var mouse_pos = $Tower_Crosssbow.get_local_mouse_position()
+		#var baum = $Sprite.get_global_transform_with_canvas()
+		#if mouse_pos.x > (baum.x + $Sprite.texture.get_size().x) :
+		#	pass
+		show_tower_range()
 
 # Called every frame
 func _process(delta):
@@ -60,3 +72,17 @@ func process_shooting(delta):
 	focus.take_damage(damage)
 	armed = false
 	$RearmTimer.start()
+
+#reveal the range of the tower
+func show_tower_range():
+		$Range/CollisionShape2D/Sprite.visible = true
+		var timer = Timer.new()
+		timer.connect("timeout", self, "toggle_tower_range")
+		add_child(timer)
+		timer.set_wait_time(4)
+		timer.start()
+
+#timer event to disable the tower radius sprite
+func toggle_tower_range():
+	if $Range/CollisionShape2D/Sprite.visible == true:
+		$Range/CollisionShape2D/Sprite.visible = false

@@ -10,6 +10,8 @@ export var speed = 175
 export var eps = 10
 # Draw the path using debug dots
 export var draw_path = false
+# The max force of the enemy
+export var max_force = 175
 
 onready var tile_map = get_tree().get_root().get_node("/root/World/TileMap")
 
@@ -41,7 +43,11 @@ func set_healthbar_progress():
 func _process(delta):
 	var data = flow_data()
 	if data != null:
-		linear_velocity = data.node.direction * speed
+		var desired = data.node.direction * speed
+		var steer = (desired - linear_velocity).clamped(max_force)
+		apply_impulse(Vector2(0, 0), steer)
+		#linear_velocity = data.node.direction * speed
+		
 		#var d = node.direction
 		#var target_pos = (map_pos + d) * flow.size # - Vector2(flow.size / 2, flow.size / 2)
 		#print("world_pos " + String(world_pos) + " -- target_pos " + String(target_pos) + " -- dir " + String(d))
@@ -61,12 +67,10 @@ func _draw():
 		if data != null:
 			var color = Color(1, 0, 0)
 			draw_circle(to_local(data.map_pos * flow.size), 10, color)
-#		for p in points:
-#			draw_circle(to_local(p), 25, Color(1, 0, 0))
 
 func flow_data():
 	var world_pos = global_position
-	var map_pos = tile_map.world_to_map(world_pos) # + Vector2(flow.size / 2, flow.size / 2)
+	var map_pos = tile_map.world_to_map(world_pos)
 	var idx = int(map_pos.x * flow.size + map_pos.y)
 	if idx < flow.field.size() && idx >= 0:
 		var node = flow.field[idx]

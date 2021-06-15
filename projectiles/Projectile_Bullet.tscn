@@ -11,6 +11,7 @@ height = 43.9111
 mode = 2
 script = ExtResource( 2 )
 max_age = 15
+damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

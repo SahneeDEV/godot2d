@@ -35,17 +35,16 @@ shape = SubResource( 1 )
 position = Vector2( -8, -80 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
-frame = 7
 playing = true
 
 [node name="Health" type="Node2D" parent="."]
 
 [node name="TextureProgress" type="TextureProgress" parent="Health"]
-margin_left = -205.0
-margin_top = -144.0
-margin_right = 475.0
-margin_bottom = -74.0
-rect_scale = Vector2( 0.6, 0.8 )
+margin_left = -152.0
+margin_top = -135.0
+margin_right = 528.0
+margin_bottom = -65.0
+rect_scale = Vector2( 0.45, 0.8 )
 value = 100.0
 texture_progress = ExtResource( 10 )
 __meta__ = {

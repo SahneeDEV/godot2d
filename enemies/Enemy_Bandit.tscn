@@ -23,6 +23,7 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="RigidBody2D"]
+mode = 2
 script = ExtResource( 1 )
 speed = 220
 
@@ -34,7 +35,6 @@ shape = SubResource( 1 )
 position = Vector2( -16, -24 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="Health" type="Node2D" parent="."]

@@ -19,10 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Enemy.gd"
 }, {
-"base": "Node",
+"base": "CanvasItem",
 "class": "EnemySpawner",
 "language": "GDScript",
 "path": "res://scripts/EnemySpawner.gd"
+}, {
+"base": "Node",
+"class": "FlowField",
+"language": "GDScript",
+"path": "res://scripts/FlowField.gd"
 }, {
 "base": "Camera2D",
 "class": "PlayerCamera",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "Base": "",
 "Enemy": "",
 "EnemySpawner": "",
+"FlowField": "",
 "PlayerCamera": "",
 "Tower": "",
 "TowerManager": ""

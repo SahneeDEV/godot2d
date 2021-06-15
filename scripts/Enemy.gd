@@ -11,7 +11,7 @@ export var eps = 10
 # Draw the path using debug dots
 export var draw_path = false
 
-onready var tile_map = get_tree().get_root().get_node("/root/World/Navigation2D/TileMap")
+onready var tile_map = get_tree().get_root().get_node("/root/World/TileMap")
 
 # the flow field the enemy follows
 var flow = []
@@ -39,27 +39,44 @@ func set_healthbar_progress():
 	healthbar.value = hp_value
 
 func _process(delta):
+	var data = flow_data()
+	if data != null:
+		linear_velocity = data.node.direction * speed
+		#var d = node.direction
+		#var target_pos = (map_pos + d) * flow.size # - Vector2(flow.size / 2, flow.size / 2)
+		#print("world_pos " + String(world_pos) + " -- target_pos " + String(target_pos) + " -- dir " + String(d))
+		#var dist = world_pos.distance_to(target_pos)
+		#if dist == 0:
+		#	return
+		#var next_pos = world_pos.linear_interpolate(target_pos, speed * delta / dist)
+		#global_position = next_pos
+	if hp <= 0:
+		queue_free()
+	if draw_path:
+		update()
+
+func _draw():
+	if draw_path:
+		var data = flow_data()
+		if data != null:
+			var color = Color(1, 0, 0)
+			draw_circle(to_local(data.map_pos * flow.size), 10, color)
+#		for p in points:
+#			draw_circle(to_local(p), 25, Color(1, 0, 0))
+
+func flow_data():
 	var world_pos = global_position
-	var map_pos = tile_map.world_to_map(world_pos)
+	var map_pos = tile_map.world_to_map(world_pos) # + Vector2(flow.size / 2, flow.size / 2)
 	var idx = int(map_pos.x * flow.size + map_pos.y)
 	if idx < flow.field.size() && idx >= 0:
 		var node = flow.field[idx]
-		var d = node.direction
-		var target_pos = world_pos + d * flow.size
-		var dist = world_pos.distance_to(target_pos)
-		if dist == 0:
-			return
-		var next_pos = world_pos.linear_interpolate(target_pos, speed * delta / dist)
-		global_position = next_pos
-	if hp <= 0:
-		queue_free()
-#	if draw_path:
-#		update()
-
-#func _draw():
-#	if draw_path:
-#		for p in points:
-#			draw_circle(to_local(p), 25, Color(1, 0, 0))
+		return {
+			"node": node,
+			"world_pos": world_pos,
+			"map_pos": map_pos,
+			"i": idx,
+		}
+	return null
 			
 func apply_damage(to: Base):
 	to.take_damage(ceil(hp / 10))

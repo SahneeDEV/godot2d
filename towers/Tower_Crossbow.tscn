@@ -10,6 +10,7 @@ radius = 549.778
 [node name="Tower_Crosssbow" type="Node2D"]
 position = Vector2( 561.525, 1333.47 )
 script = ExtResource( 2 )
+damage = 1
 
 [node name="RearmTimer" type="Timer" parent="."]
 one_shot = true

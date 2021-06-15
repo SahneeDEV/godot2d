@@ -23,6 +23,7 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="RigidBody2D"]
+mode = 2
 script = ExtResource( 1 )
 speed = 140
 

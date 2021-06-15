@@ -1,12 +1,13 @@
 extends Node2D
 class_name TowerManager
 
-export var towers = [preload("res://towers/Tower_Crossbow.tscn")]
+export(Array, PackedScene) var towers = []
 
-onready var nav2d = get_node("/root/World/Navigation2D")
-onready var tilemap = nav2d.get_node("./TileMap")
+onready var tilemap = get_node("/root/World/TileMap")
 
 var placed_towers = {}
+
+signal tower_placed(tower)
 
 func _ready():
 	set_process(true)
@@ -23,14 +24,16 @@ func spawn_tower(pos):
 	if is_placeable(instance, mpos, gpos, placed_towers.get(mpos), null):
 		add_child(instance)
 		instance.global_position = gpos
-		placed_towers[mpos] = {
+		var placed_tower = {
 			"map_position": mpos,
 			"global_position": gpos,
 			"instance": instance,
 		}
+		placed_towers[mpos] = placed_tower
 		var build_sound = instance.get_node("./BuildSound")
 		if build_sound != null:
 			build_sound.play()
+		emit_signal("tower_placed", placed_tower)
 	else:
 		instance.queue_free()
 			

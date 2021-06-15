@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/PlayerCamera.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://scripts/Projectile.gd"
+}, {
 "base": "Node",
 "class": "Tower",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "EnemySpawner": "",
 "FlowField": "",
 "PlayerCamera": "",
+"Projectile": "",
 "Tower": "",
 "TowerManager": ""
 }

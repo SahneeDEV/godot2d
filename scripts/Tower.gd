@@ -3,6 +3,7 @@ class_name Tower
 
 export var damage = 50
 export var draw_target = false
+export(PackedScene) var projectile = preload("res://projectiles/Projectile_Bullet.tscn")
 
 var focus = null
 var armed = true
@@ -38,7 +39,7 @@ func _on_body_exited(body):
 
 # Called when the tower rearms
 func _on_rearm():
-	print("Tower " + self.name + " rearmed!")
+	print("[Tower] " + self.name + " rearmed!")
 	armed = true
 	
 ## Can this tower be placed at the given location?
@@ -54,7 +55,7 @@ func find_new_focus():
 	for body in $Range.get_overlapping_bodies():
 		if is_tower_target(body):
 			focus = body
-			print("Tower " + self.name + " acquired new target " + focus.name)
+			print("[Tower] " + self.name + " acquired new target " + focus.name)
 			return body
 
 func process_rotation(delta):
@@ -68,19 +69,23 @@ func process_shooting(delta):
 		return
 	if !armed:
 		return
-	print("Tower " + self.name + " shooting " + focus.name)
-	focus.take_damage(damage)
+	print("[Tower] " + self.name + " shooting " + focus.name)
+	var instance = projectile.instance()
+	add_child(instance)
+	instance.rotation_degrees = $Sprite.rotation_degrees
+	#focus.take_damage(damage)
 	armed = false
 	$RearmTimer.start()
 
 #reveal the range of the tower
 func show_tower_range():
-		$Range/CollisionShape2D/Sprite.visible = true
-		var timer = Timer.new()
-		timer.connect("timeout", self, "toggle_tower_range")
-		add_child(timer)
-		timer.set_wait_time(4)
-		timer.start()
+	$Range/CollisionShape2D/Sprite.visible = true
+	var timer = Timer.new()
+	timer.connect("timeout", self, "toggle_tower_range")
+	add_child(timer)
+	timer.one_shot = true
+	timer.set_wait_time(4)
+	timer.start()
 
 #timer event to disable the tower radius sprite
 func toggle_tower_range():

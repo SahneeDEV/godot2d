@@ -1,17 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://images/towers/crossbow.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Tower.gd" type="Script" id=2]
 [ext_resource path="res://sounds/impact_deep_thud_bounce_01.wav" type="AudioStream" id=3]
 [ext_resource path="res://images/towers/tower_radius.png" type="Texture" id=4]
+[ext_resource path="res://projectiles/Projectile.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 549.778
+radius = 9984.21
 
-[node name="Tower_Crosssbow" type="Node2D"]
-position = Vector2( 561.525, 1333.47 )
+[node name="Tower" type="Node2D"]
 script = ExtResource( 2 )
-damage = 40
+icon = ExtResource( 1 )
+projectile = ExtResource( 5 )
 
 [node name="RearmTimer" type="Timer" parent="."]
 wait_time = 0.1

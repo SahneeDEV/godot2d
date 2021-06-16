@@ -2,6 +2,7 @@ extends Node2D
 class_name TowerManager
 
 export(Array, PackedScene) var towers = []
+var selected_tower: PackedScene = null
 
 onready var tilemap = get_node("/root/World/TileMap")
 
@@ -13,14 +14,14 @@ func _ready():
 	set_process(true)
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && selected_tower != null:
 		var pos = get_global_mouse_position()
 		spawn_tower(pos)
 		
 func spawn_tower(pos):
 	var gpos = snap_to_tile_map(pos)
 	var mpos = map_position(gpos)
-	var instance = towers[0].instance()
+	var instance = selected_tower.instance()
 	if is_placeable(instance, mpos, gpos, placed_towers.get(mpos), null):
 		add_child(instance)
 		instance.global_position = gpos
@@ -48,7 +49,3 @@ func snap_to_tile_map(pos):
 	
 func is_placeable(tower, map_position, global_position, current_state, cell):
 	return tower.is_placeable(tower, map_position, global_position, current_state, cell)
-
-func cutout(pos):
-	var newpolygon = PoolVector2Array()
-	var polygon = "ok"

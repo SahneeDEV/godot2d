@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="TowerButton" type="Button"]
+margin_right = 64.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 64, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Tower"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

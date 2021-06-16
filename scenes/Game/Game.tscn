@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://enemies/Enemy_Professor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Enemy_Crow.tscn" type="PackedScene" id=2]
@@ -15,12 +15,18 @@
 [ext_resource path="res://enemies/Enemy_GrimReaper.tscn" type="PackedScene" id=13]
 [ext_resource path="res://enemies/Enemy_Wolf.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/FlowField.gd" type="Script" id=15]
-[ext_resource path="res://towers/Tower_Crossbow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://towers/Tower_Crosssbow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/Game/GameInterface.tscn" type="PackedScene" id=17]
+[ext_resource path="res://towers/Tower_DevMode.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 183.723, 208.978 )
 
 [node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameInterface" parent="CanvasLayer" instance=ExtResource( 17 )]
 
 [node name="Details" type="TileMap" parent="."]
 position = Vector2( -1.33325, 0 )
@@ -53,6 +59,7 @@ speed = 3000
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 8 )
 enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
+show_flow = true
 
 [node name="Location" type="Node2D" parent="EnemySpawner"]
 position = Vector2( 701.141, 106.321 )
@@ -78,7 +85,7 @@ shape = SubResource( 1 )
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource( 6 )
-towers = [ ExtResource( 16 ) ]
+towers = [ ExtResource( 16 ), ExtResource( 18 ) ]
 
 [node name="FlowField" type="Node" parent="."]
 script = ExtResource( 15 )

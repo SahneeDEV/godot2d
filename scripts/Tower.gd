@@ -1,8 +1,10 @@
 extends Node
 class_name Tower
 
-export var damage = 50
 export var draw_target = false
+export var build_price = 100
+export var tower_name = "New tower"
+export(Texture) var icon
 export(PackedScene) var projectile = preload("res://projectiles/Projectile_Bullet.tscn")
 
 var focus = null
@@ -73,7 +75,6 @@ func process_shooting(delta):
 	var instance = projectile.instance()
 	add_child(instance)
 	instance.rotation_degrees = $Sprite.rotation_degrees
-	#focus.take_damage(damage)
 	armed = false
 	$RearmTimer.start()
 

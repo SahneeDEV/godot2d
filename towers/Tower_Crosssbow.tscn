@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://towers/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://projectiles/Projectile_Bullet.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 902.916
 
 [node name="Tower_Crosssbow" instance=ExtResource( 1 )]
 scale = Vector2( 1.00429, 1 )
 tower_name = "Crossbow"
 projectile = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource( 1 )

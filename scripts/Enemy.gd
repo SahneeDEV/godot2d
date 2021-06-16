@@ -16,7 +16,7 @@ export var max_force = 175
 onready var tile_map = get_tree().get_root().get_node("/root/World/TileMap")
 
 # the flow field the enemy follows
-var flow = []
+var flow = null
 var points = []
 var max_hp : float = 0
 

@@ -7,7 +7,7 @@
 [ext_resource path="res://projectiles/Projectile.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 928.951
+radius = 1654.03
 
 [node name="Tower" type="Node2D"]
 script = ExtResource( 2 )
@@ -19,6 +19,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Range" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 1 )

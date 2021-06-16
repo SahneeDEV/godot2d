@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://towers/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://projectiles/Projectile_DevMode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/logo_sahne_offiziell.png" type="Texture" id=3]
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 7306.59
+
 [node name="Tower" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1.00423 )
 tower_name = "Dev Tower"
 icon = ExtResource( 3 )
 projectile = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
 scale = Vector2( 1, 1 )

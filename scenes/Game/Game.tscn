@@ -56,6 +56,42 @@ speed = 3000
 
 [node name="Tween" type="Tween" parent="Camera2D"]
 
+[node name="EnemySpawner3" type="Node2D" parent="."]
+script = ExtResource( 8 )
+enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
+
+[node name="Location" type="Node2D" parent="EnemySpawner3"]
+position = Vector2( 3142.23, 2517.95 )
+scale = Vector2( -351.152, 29.6999 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Target" type="Node2D" parent="EnemySpawner3"]
+position = Vector2( 321.06, 3668.72 )
+
+[node name="Timer" type="Timer" parent="EnemySpawner3"]
+wait_time = 0.1
+autostart = true
+
+[node name="EnemySpawner2" type="Node2D" parent="."]
+script = ExtResource( 8 )
+enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
+
+[node name="Location" type="Node2D" parent="EnemySpawner2"]
+position = Vector2( 3131.55, 328.808 )
+scale = Vector2( -351.152, 29.6999 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Target" type="Node2D" parent="EnemySpawner2"]
+position = Vector2( 321.06, 3668.72 )
+
+[node name="Timer" type="Timer" parent="EnemySpawner2"]
+wait_time = 0.1
+autostart = true
+
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 8 )
 enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
@@ -70,6 +106,7 @@ __meta__ = {
 position = Vector2( 321.06, 3668.72 )
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
+wait_time = 0.1
 autostart = true
 
 [node name="Base" type="Node2D" parent="."]
@@ -77,6 +114,8 @@ position = Vector2( 325.946, 3565.3 )
 script = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="Base"]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Base/Area2D"]
 position = Vector2( -11.9557, 103.197 )
@@ -89,5 +128,7 @@ towers = [ ExtResource( 16 ), ExtResource( 18 ) ]
 [node name="FlowField" type="Node" parent="."]
 script = ExtResource( 15 )
 
+[connection signal="timeout" from="EnemySpawner3/Timer" to="EnemySpawner3" method="_on_timer"]
+[connection signal="timeout" from="EnemySpawner2/Timer" to="EnemySpawner2" method="_on_timer"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer"]
 [connection signal="body_entered" from="Base/Area2D" to="Base" method="_on_body_entered"]

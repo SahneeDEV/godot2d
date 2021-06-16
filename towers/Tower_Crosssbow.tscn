@@ -4,5 +4,6 @@
 [ext_resource path="res://projectiles/Projectile_Bullet.tscn" type="PackedScene" id=2]
 
 [node name="Tower_Crosssbow" instance=ExtResource( 1 )]
+scale = Vector2( 1.00429, 1 )
 tower_name = "Crossbow"
 projectile = ExtResource( 2 )

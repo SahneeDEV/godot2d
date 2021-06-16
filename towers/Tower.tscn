@@ -7,7 +7,7 @@
 [ext_resource path="res://projectiles/Projectile.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 9984.21
+radius = 928.951
 
 [node name="Tower" type="Node2D"]
 script = ExtResource( 2 )

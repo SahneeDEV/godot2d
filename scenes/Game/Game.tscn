@@ -59,7 +59,6 @@ speed = 3000
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 8 )
 enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
-show_flow = true
 
 [node name="Location" type="Node2D" parent="EnemySpawner"]
 position = Vector2( 701.141, 106.321 )

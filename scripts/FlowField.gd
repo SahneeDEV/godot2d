@@ -40,7 +40,7 @@ func _ready():
 func rebuild_grid():
 	var valid_tiles = tile_map.tile_set.get_tiles_ids()
 	print("[FlowField] Rebuilding grid with tile map " + tile_map.name + " with tile IDs " + String(valid_tiles))
-	size = int(tile_map.cell_size.x)
+	size = calculate_size()
 	grid = []
 	for x in size:
 		for y in size:
@@ -79,6 +79,7 @@ func path_to(to):
 	return {
 		"field": field,
 		"size": size,
+		"cell_size": cell_size,
 		"to": to,
 	}
 	
@@ -166,3 +167,19 @@ func idx_v2(v2):
 func _on_tower_placed(_tower):
 	print("[FlowField] Tower placed, rebuilding grid")
 	rebuild_grid()
+
+func calculate_size():
+	var used_cells = tile_map.get_used_cells()
+	var min_size = Vector2(0, 0)
+	var max_size = Vector2(0, 0)
+	for pos in used_cells:
+		if pos.x < min_size.x:
+			min_size.x = int(pos.x)
+		elif pos.x > max_size.x:
+			max_size.x = int(pos.x)
+		if pos.y < min_size.y:
+			min_size.y = int(pos.y)
+		elif pos.y > max_size.y:
+			max_size.y = int(pos.y)
+	var size = Vector2(max_size.x - min_size.x, max_size.y - min_size.y)
+	return int(size.x) if size.x > size.y else int(size.y)

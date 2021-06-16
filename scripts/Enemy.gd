@@ -66,7 +66,7 @@ func _draw():
 		var data = flow_data()
 		if data != null:
 			var color = Color(1, 0, 0)
-			draw_circle(to_local(data.map_pos * flow.size), 10, color)
+			draw_circle(to_local(data.map_pos * flow.cell_size), 10, color)
 
 func flow_data():
 	var world_pos = global_position

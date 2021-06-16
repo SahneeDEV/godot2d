@@ -52,11 +52,11 @@ func _draw():
 	if show_flow:
 		for node in flow.field:
 			var color = Color(0, 0, 0)
-			var pos = Vector2(node.x * flow.size + flow.size / 2, node.y * flow.size + flow.size / 2)
+			var pos = Vector2(node.x * flow.cell_size + flow.cell_size / 2, node.y * flow.cell_size + flow.cell_size / 2)
 			draw_string(default_font, pos, "Cost: " + String(node.cost))
 			draw_string(default_font, pos + Vector2(0, 16), "Dir: " + String(node.direction))
-			draw_line(pos, pos + node.direction * flow.size / 2.5, color)
-			draw_circle(pos + node.direction * flow.size / 2.5, 5, color)
+			draw_line(pos, pos + node.direction * flow.cell_size / 2.5, color)
+			draw_circle(pos + node.direction * flow.cell_size / 2.5, 5, color)
 			
 func _on_tree_exiting(instance):
 	var idx = instances.find(instance)

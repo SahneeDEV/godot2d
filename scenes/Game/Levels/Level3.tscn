@@ -64,6 +64,7 @@ position = Vector2( 1745.84, 1926.66 )
 
 [node name="Base" parent="." index="5"]
 position = Vector2( 1741.39, 1926.66 )
+hp = 200
 
 [connection signal="timeout" from="WaveManager/Spawners/EnemySpawner2/Timer" to="WaveManager/Spawners/EnemySpawner2" method="_on_timer"]
 [connection signal="timeout" from="WaveManager/Spawners/EnemySpawner3/Timer" to="WaveManager/Spawners/EnemySpawner3" method="_on_timer"]

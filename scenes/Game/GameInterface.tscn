@@ -1,11 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/ui/Windows/window_31.png" type="Texture" id=1]
+[ext_resource path="res://images/ui/Windows/window_11.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Ubuntu-R.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/Game/GameInterface.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Game/ToastManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/ui/Windows/window_13.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 60
 font_data = ExtResource( 3 )
 
@@ -13,9 +19,9 @@ font_data = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.667419
-margin_top = 0.187073
+margin_top = 1.2453
 margin_right = -0.66748
-margin_bottom = 0.187012
+margin_bottom = 1.24524
 mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
@@ -87,6 +93,186 @@ custom_colors/font_color_shadow = Color( 0, 0.941176, 1, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "NEXT WAVE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Defeat" type="NinePatchRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -343.5
+margin_top = -79.5
+margin_right = 343.5
+margin_bottom = 79.5
+texture = ExtResource( 6 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Defeat"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Defeat/VBoxContainer"]
+margin_right = 667.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+text = "RIP in Pieces"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Defeat/VBoxContainer"]
+margin_top = 72.0
+margin_right = 667.0
+margin_bottom = 139.0
+size_flags_vertical = 3
+
+[node name="RestartLevel" type="Button" parent="Defeat/VBoxContainer/HBoxContainer"]
+margin_right = 331.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Defeat/VBoxContainer/HBoxContainer/RestartLevel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.941176, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="Defeat/VBoxContainer/HBoxContainer"]
+margin_left = 335.0
+margin_right = 667.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Defeat/VBoxContainer/HBoxContainer/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.941176, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "To Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Victory" type="NinePatchRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -343.5
+margin_top = -79.5
+margin_right = 343.5
+margin_bottom = 79.5
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Victory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Victory/VBoxContainer"]
+margin_right = 667.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+text = "You are Winner!"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Victory/VBoxContainer"]
+margin_top = 72.0
+margin_right = 667.0
+margin_bottom = 139.0
+size_flags_vertical = 3
+
+[node name="NextLevel" type="Button" parent="Victory/VBoxContainer/HBoxContainer"]
+margin_right = 331.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Victory/VBoxContainer/HBoxContainer/NextLevel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.941176, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Next Level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="Victory/VBoxContainer/HBoxContainer"]
+margin_left = 335.0
+margin_right = 667.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Victory/VBoxContainer/HBoxContainer/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.941176, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "To Menu"
 align = 1
 valign = 1
 __meta__ = {

@@ -17,17 +17,22 @@ var cleared_spawners = []
 
 onready var toasts: ToastManager = get_node("/root/World/GUI/GameInterface/ToastManager")
 onready var next_wave_btn: Button = get_node("/root/World/GUI/GameInterface/NextWave")
+onready var defeat_ui: Button = get_node("/root/World/GUI/GameInterface/Defeat")
+onready var victory_ui: Button = get_node("/root/World/GUI/GameInterface/Victory")
+onready var base: Base = get_node("/root/World/Base")
 
 # emitted when a wave is started
 signal wave_started(wave)
 # emitted when a wave is cleared
 signal wave_cleared(wave)
+# emitted when the game was won
+signal game_won()
 
 func _ready():
 	next_wave_btn.connect("pressed", self, "_on_next_wave_btn")
 	next_wave_btn.visible = true
 	spawners = $Spawners.get_children()
-	self.connect("game_over", self, "game_over_fn")
+	base.connect("game_over", self, "_on_game_over")
 	for spawner in spawners:
 		spawner.connect("spawning_cleared", self, "_on_spawning_cleared", [spawner])
 
@@ -38,7 +43,7 @@ func _on_spawning_cleared(spawner):
 		next_wave_btn.visible = true
 		emit_signal("wave_cleared", wave)
 		if wave == wave_count:
-			#game is won
+			emit_signal("game_won")
 			game_won()
 
 func next_wave():
@@ -57,10 +62,8 @@ func next_wave():
 func _on_next_wave_btn():
 	next_wave()
 	
-func game_over_fn():
-	
-	pass
+func _on_game_over():
+	defeat_ui.visible = true
 
 func game_won():
-	
-	pass
+	victory_ui.visible = true

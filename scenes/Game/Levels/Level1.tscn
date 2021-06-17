@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Game/Game.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve" id=1]
+max_value = 20.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 20 ), 0.0, 0.0, 0, 0 ]
+
+[node name="World" instance=ExtResource( 1 )]
+
+[node name="WaveManager" parent="." index="4"]
+difficulty = SubResource( 1 )

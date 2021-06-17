@@ -17,8 +17,8 @@ var cleared_spawners = []
 
 onready var toasts: ToastManager = get_node("/root/World/GUI/GameInterface/ToastManager")
 onready var next_wave_btn: Button = get_node("/root/World/GUI/GameInterface/NextWave")
-onready var defeat_ui: Button = get_node("/root/World/GUI/GameInterface/Defeat")
-onready var victory_ui: Button = get_node("/root/World/GUI/GameInterface/Victory")
+onready var defeat_ui: Control = get_node("/root/World/GUI/GameInterface/Defeat")
+onready var victory_ui: Control = get_node("/root/World/GUI/GameInterface/Victory")
 onready var base: Base = get_node("/root/World/Base")
 
 # emitted when a wave is started
@@ -66,4 +66,10 @@ func _on_game_over():
 	defeat_ui.visible = true
 
 func game_won():
+	var level = get_node("/root/World").game_level
+	var save: Save = Save.new()
+	save.load_data()
+	save.add_level(level)
+	save.save_data()
+	print("[WaveManager] Saved level " + str(level) + " as cleared")
 	victory_ui.visible = true

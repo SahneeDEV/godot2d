@@ -7,9 +7,13 @@ onready var stat = preload("res://scenes/Game/Stats/Stat_BaseHealth.tscn")
 onready var stats = get_node("/root/World/GUI/GameInterface/Stats")
 var stat_instance
 
+var ready = false
+
 signal game_over()
 
 func _ready():
+	ready = true
+	print("[Base] Created base with " + str(hp) + " HP")
 	stat_instance = stat.instance()
 	stats.add_child(stat_instance)
 	self.hp = hp
@@ -26,5 +30,6 @@ func take_damage(damage):
 
 func _set_hp(new_hp):
 	hp = new_hp
-	var label = stat_instance.get_node("./Label")
-	label.text = str(hp)
+	if ready:
+		var label = stat_instance.get_node("./Label")
+		label.text = str(hp)

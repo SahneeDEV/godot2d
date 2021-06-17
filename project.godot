@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/FlowField.gd"
 }, {
+"base": "Button",
+"class": "MenuSceneButton",
+"language": "GDScript",
+"path": "res://scenes/Menu/MenuSceneButton.gd"
+}, {
 "base": "Camera2D",
 "class": "PlayerCamera",
 "language": "GDScript",
@@ -38,6 +43,11 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://scripts/Projectile.gd"
+}, {
+"base": "Reference",
+"class": "Save",
+"language": "GDScript",
+"path": "res://scripts/Save.gd"
 }, {
 "base": "Label",
 "class": "Toast",
@@ -69,8 +79,10 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemySpawner": "",
 "FlowField": "",
+"MenuSceneButton": "",
 "PlayerCamera": "",
 "Projectile": "",
+"Save": "",
 "Toast": "",
 "ToastManager": "",
 "Tower": "",

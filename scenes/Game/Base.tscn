@@ -9,7 +9,7 @@
 [ext_resource path="res://images/base/Tree 2.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 183.723, 208.978 )
+extents = Vector2( 104.475, 208.978 )
 
 [node name="Base" type="Node2D"]
 position = Vector2( 325.946, 3565.3 )
@@ -20,14 +20,14 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -11.9557, 103.197 )
+position = Vector2( -5.96247, 103.197 )
 shape = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -103.0
 margin_top = -106.0
-margin_right = 92.0
-margin_bottom = -89.0
+margin_right = 90.0
+margin_bottom = -91.0
 texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
@@ -36,9 +36,9 @@ __meta__ = {
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 margin_left = -108.0
-margin_top = -103.0
+margin_top = -105.0
 margin_right = -102.0
-margin_bottom = 307.0
+margin_bottom = 311.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
@@ -46,10 +46,10 @@ __meta__ = {
 }
 
 [node name="TextureRect3" type="TextureRect" parent="."]
-margin_left = 90.0
-margin_top = -103.0
-margin_right = 96.0
-margin_bottom = 307.0
+margin_left = 91.0
+margin_top = -105.0
+margin_right = 97.0
+margin_bottom = 311.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
@@ -58,8 +58,8 @@ __meta__ = {
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 margin_left = -102.0
-margin_top = 294.0
-margin_right = 93.0
+margin_top = 296.0
+margin_right = 91.0
 margin_bottom = 311.0
 texture = ExtResource( 3 )
 stretch_mode = 2
@@ -88,7 +88,7 @@ position = Vector2( -56.0633, -5.33887 )
 texture = ExtResource( 6 )
 
 [node name="Sprite7" type="Sprite" parent="."]
-position = Vector2( -97.4434, 84.095 )
+position = Vector2( -88.7127, 83.8304 )
 texture = ExtResource( 7 )
 
 [node name="Sprite6" type="Sprite" parent="."]

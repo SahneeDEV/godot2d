@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scenes/Menu/StartGameButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/logo_sahne_offiziell.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Menu/QuitButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/Ubuntu-R.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://scenes/Menu/MenuSceneButton.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Menu/SceneTransition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Game/Game.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Menu/QuoteGameButton.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Menu/Menu.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Game/Levels/Level1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Game/Levels/Level2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Game/Levels/Level3.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -28,6 +28,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+levels = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -69,34 +70,24 @@ text = "Sahnee Godot Tower Defense 2D"
 [node name="Buttons" type="HBoxContainer" parent="Margin/Container"]
 margin_top = 64.0
 margin_right = 1840.0
-margin_bottom = 196.0
+margin_bottom = 128.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/Container/Buttons"]
 margin_right = 360.0
-margin_bottom = 132.0
-
-[node name="StartGameButton" parent="Margin/Container/Buttons/VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 360.0
 margin_bottom = 64.0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-script = ExtResource( 5 )
-button_target_scene = ExtResource( 7 )
 
 [node name="QuitButton" parent="Margin/Container/Buttons/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 68.0
 margin_right = 360.0
-margin_bottom = 132.0
+margin_bottom = 64.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 script = ExtResource( 8 )
 
 [node name="Credits" type="Label" parent="Margin/Container"]
-margin_top = 200.0
+margin_top = 132.0
 margin_right = 1840.0
-margin_bottom = 233.0
+margin_bottom = 165.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.635294, 0.635294, 0.635294, 1 )
 text = "Version 0.0.0

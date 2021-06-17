@@ -44,22 +44,12 @@ func set_healthbar_progress():
 		healthbar.texture_progress = bar_red
 	healthbar.value = hp_value
 
-func _process(delta):
+func _process(_delta):
 	var data = flow_data()
 	if data != null:
 		var desired = data.node.direction * speed
 		var steer = (desired - linear_velocity).clamped(max_force)
 		apply_impulse(Vector2(0, 0), steer)
-		#linear_velocity = data.node.direction * speed
-		
-		#var d = node.direction
-		#var target_pos = (map_pos + d) * flow.size # - Vector2(flow.size / 2, flow.size / 2)
-		#print("world_pos " + String(world_pos) + " -- target_pos " + String(target_pos) + " -- dir " + String(d))
-		#var dist = world_pos.distance_to(target_pos)
-		#if dist == 0:
-		#	return
-		#var next_pos = world_pos.linear_interpolate(target_pos, speed * delta / dist)
-		#global_position = next_pos
 	if hp <= 0:
 		$Hurt.stop()
 		$Defeated.play()
@@ -100,5 +90,5 @@ func take_damage(damage):
 	set_healthbar_progress()
 	print(self.name + " took damage! " + String(hp))
 	
-func is_tower_target(tower):
+func is_tower_target(_tower):
 	return true

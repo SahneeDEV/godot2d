@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://images/ui/Windows/window_31.png" type="Texture" id=1]
 [ext_resource path="res://images/ui/Windows/window_11.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://scenes/Game/GameInterface.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Game/ToastManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://images/ui/Windows/window_13.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Game/BackToMenuButton.gd" type="Script" id=7]
+[ext_resource path="res://scenes/Game/RestartLevelButton.gd" type="Script" id=8]
+[ext_resource path="res://scenes/Game/NextLevelButton.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -148,6 +151,7 @@ margin_right = 331.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,6 +177,7 @@ margin_right = 667.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="Defeat/VBoxContainer/HBoxContainer/Menu"]
 anchor_right = 1.0
@@ -238,6 +243,7 @@ margin_right = 331.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -263,6 +269,7 @@ margin_right = 667.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="Victory/VBoxContainer/HBoxContainer/Menu"]
 anchor_right = 1.0

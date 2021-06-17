@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://enemies/Enemy_Professor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Enemy_Crow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tilesets/gasslands.tres" type="TileSet" id=3]
 [ext_resource path="res://tilesets/details.tres" type="TileSet" id=4]
-[ext_resource path="res://scripts/Base.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Game/Base.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Game/TowerManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Game/GameCamera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=8]
@@ -22,9 +22,6 @@
 [sub_resource type="Curve" id=2]
 max_value = 100.0
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 183.723, 208.978 )
 
 [node name="World" type="Node2D"]
 
@@ -80,17 +77,7 @@ position = Vector2( 321.06, 3668.72 )
 
 [node name="Timer" type="Timer" parent="WaveManager/Spawners/EnemySpawner"]
 
-[node name="Base" type="Node2D" parent="."]
-position = Vector2( 325.946, 3565.3 )
-script = ExtResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="Base"]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Base/Area2D"]
-position = Vector2( -11.9557, 103.197 )
-shape = SubResource( 1 )
+[node name="Base" parent="." instance=ExtResource( 5 )]
 
 [node name="TowerManager" parent="." instance=ExtResource( 6 )]
 
@@ -103,4 +90,3 @@ volume_db = -20.0
 autoplay = true
 
 [connection signal="timeout" from="WaveManager/Spawners/EnemySpawner/Timer" to="WaveManager/Spawners/EnemySpawner" method="_on_timer"]
-[connection signal="body_entered" from="Base/Area2D" to="Base" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://enemies/Enemy_Professor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Enemy_Crow.tscn" type="PackedScene" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://scripts/FlowField.gd" type="Script" id=15]
 [ext_resource path="res://sounds/music/mainTheme.wav" type="AudioStream" id=16]
 [ext_resource path="res://scenes/Game/GameInterface.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/WaveManager.gd" type="Script" id=18]
+
+[sub_resource type="Curve" id=2]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.193841, 36.5031 ), 0.0, 0.0, 0, 0, Vector2( 0.29529, 30.3681 ), 0.0, 0.0, 0, 0, Vector2( 0.563406, 100 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 183.723, 208.978 )
@@ -52,22 +57,27 @@ __meta__ = {
 [node name="GameCamera" parent="." instance=ExtResource( 7 )]
 position = Vector2( -7.55127, 0 )
 
-[node name="EnemySpawner3" type="Node2D" parent="."]
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource( 18 )
+waves = SubResource( 2 )
+
+[node name="Spawners" type="Node" parent="WaveManager"]
+
+[node name="EnemySpawner" type="Node2D" parent="WaveManager/Spawners"]
 script = ExtResource( 8 )
 enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
 
-[node name="Location" type="Node2D" parent="EnemySpawner3"]
+[node name="Location" type="Node2D" parent="WaveManager/Spawners/EnemySpawner"]
 position = Vector2( 701.337, 68.6122 )
 scale = Vector2( -351.152, 29.6999 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Target" type="Node2D" parent="EnemySpawner3"]
+[node name="Target" type="Node2D" parent="WaveManager/Spawners/EnemySpawner"]
 position = Vector2( 321.06, 3668.72 )
 
-[node name="Timer" type="Timer" parent="EnemySpawner3"]
-autostart = true
+[node name="Timer" type="Timer" parent="WaveManager/Spawners/EnemySpawner"]
 
 [node name="Base" type="Node2D" parent="."]
 position = Vector2( 325.946, 3565.3 )
@@ -91,5 +101,5 @@ stream = ExtResource( 16 )
 volume_db = -20.0
 autoplay = true
 
-[connection signal="timeout" from="EnemySpawner3/Timer" to="EnemySpawner3" method="_on_timer"]
+[connection signal="timeout" from="WaveManager/Spawners/EnemySpawner/Timer" to="WaveManager/Spawners/EnemySpawner" method="_on_timer"]
 [connection signal="body_entered" from="Base/Area2D" to="Base" method="_on_body_entered"]

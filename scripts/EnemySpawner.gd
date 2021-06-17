@@ -13,10 +13,20 @@ onready var tower_manager = get_tree().get_root().get_node("/root/World/TowerMan
 var flow: Dictionary = {}
 # all currently living enemies of this spawner
 var instances: Array = []
-
+# rng for this spawner
 var rng = RandomNumberGenerator.new()
+# how many enemies left to spawn
+var amount_to_spawn: int = 0
+
+# spawned all enemies to be spawned
+signal spawning_finished()
+# started spawning
+signal spawning_started()
+# all spawned enemies have left the map
+signal spawning_cleared()
 
 func _ready():
+	$Timer.stop()
 	rng.randomize()
 	flow_field.connect("grid_changed", self, "_on_grid_changed")
 
@@ -33,6 +43,16 @@ func _on_timer():
 	instance.connect("tree_exiting", self, "_on_tree_exiting", [instance])
 	instance.connect("enemy_defeated", self, "_on_enemy_defeated", [instance])
 	randomize_speed(instance)
+	amount_to_spawn = amount_to_spawn - 1
+	if amount_to_spawn == 0:
+		emit_signal("spawning_finished")
+		$Timer.stop()
+
+# starts spawning
+func spawn(amount: int):
+	amount_to_spawn = amount
+	$Timer.start()
+	emit_signal("spawning_started")
 
 func randomize_speed(instance):
 	var speed = instance.speed
@@ -71,3 +91,5 @@ func _on_tree_exiting(instance: Enemy):
 	var idx = instances.find(instance)
 	if idx != -1:
 		instances.remove(idx)
+	if instances.size() == 0 && amount_to_spawn == 0:
+		emit_signal("spawning_cleared")

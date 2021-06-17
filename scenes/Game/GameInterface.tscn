@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://images/ui/Windows/window_31.png" type="Texture" id=1]
+[ext_resource path="res://images/coins_0.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Ubuntu-R.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/Game/GameInterface.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Game/ToastManager.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.667419
+margin_top = 0.187073
 margin_right = -0.66748
+margin_bottom = 0.187012
 mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
@@ -18,8 +26,9 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
 margin_top = -60.0
-margin_right = -11.0
+margin_right = -19.9999
 rect_scale = Vector2( 1.01067, 1.00008 )
 texture = ExtResource( 1 )
 patch_margin_left = 8
@@ -40,3 +49,29 @@ margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Money" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -105.0
+margin_right = 0.00012207
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Money"]
+margin_right = 16.0
+margin_bottom = 20.0
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Money"]
+margin_left = 20.0
+margin_right = 101.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 1 )
+text = "000000000"
+valign = 1
+
+[node name="ToastManager" parent="." instance=ExtResource( 5 )]

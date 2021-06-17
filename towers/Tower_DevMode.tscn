@@ -9,6 +9,7 @@ radius = 7306.59
 
 [node name="Tower" instance=ExtResource( 1 )]
 scale = Vector2( 1, 1.00423 )
+build_price = 0
 tower_name = "Dev Tower"
 icon = ExtResource( 3 )
 projectile = ExtResource( 2 )

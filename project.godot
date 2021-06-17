@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Projectile.gd"
 }, {
+"base": "Label",
+"class": "Toast",
+"language": "GDScript",
+"path": "res://scripts/Toast.gd"
+}, {
+"base": "VBoxContainer",
+"class": "ToastManager",
+"language": "GDScript",
+"path": "res://scripts/ToastManager.gd"
+}, {
 "base": "Node",
 "class": "Tower",
 "language": "GDScript",
@@ -56,6 +66,8 @@ _global_script_class_icons={
 "FlowField": "",
 "PlayerCamera": "",
 "Projectile": "",
+"Toast": "",
+"ToastManager": "",
 "Tower": "",
 "TowerManager": ""
 }

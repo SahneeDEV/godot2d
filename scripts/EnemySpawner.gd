@@ -7,6 +7,8 @@ export var show_flow = false
 
 onready var default_font = Control.new().get_font("font")
 onready var flow_field = get_tree().get_root().get_node("/root/World/FlowField")
+onready var tower_manager = get_tree().get_root().get_node("/root/World/TowerManager")
+
 # the flow field used by this spawner
 var flow: Dictionary = {}
 # all currently living enemies of this spawner
@@ -20,7 +22,7 @@ func _ready():
 
 func _on_timer():
 	var enemy = enemies[randi() % enemies.size()]
-	var instance = enemy.instance()
+	var instance: Enemy = enemy.instance()
 	var pos = $Location.global_position
 	instance.global_position = pos
 	add_child(instance)
@@ -29,13 +31,14 @@ func _on_timer():
 		instance.draw_path = show_flow
 	instances.push_back(instance)
 	instance.connect("tree_exiting", self, "_on_tree_exiting", [instance])
+	instance.connect("enemy_defeated", self, "_on_enemy_defeated", [instance])
 	randomize_speed(instance)
-	
+
 func randomize_speed(instance):
 	var speed = instance.speed
 	speed = rng.randf_range(speed * speed_multiplier.x, speed * speed_multiplier.y)
 	instance.speed = speed
-	
+
 func rebuild_flow():
 	flow = flow_field.path_to_world($Target.global_position.floor())
 	print("[EnemySpawner] Created new flow field to " + String($Target.name))
@@ -44,7 +47,7 @@ func rebuild_flow():
 	# update paths of existing enemies
 	for instance in instances:
 		instance.flow = flow
-	
+
 func _on_grid_changed():
 	rebuild_flow()
 
@@ -57,8 +60,14 @@ func _draw():
 			draw_string(default_font, pos + Vector2(0, 16), "Dir: " + String(node.direction))
 			draw_line(pos, pos + node.direction * flow.cell_size / 2.5, color)
 			draw_circle(pos + node.direction * flow.cell_size / 2.5, 5, color)
-			
-func _on_tree_exiting(instance):
+
+# called when an enemy has been defeated
+func _on_enemy_defeated(instance: Enemy):
+	var reward = instance.reward_money
+	tower_manager.money += reward
+
+# called when an enemy gets deleted from the game world
+func _on_tree_exiting(instance: Enemy):
 	var idx = instances.find(instance)
 	if idx != -1:
 		instances.remove(idx)

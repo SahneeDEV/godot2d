@@ -2,8 +2,7 @@ extends RigidBody2D
 class_name Enemy
 
 # The health of the enemy
-export var hp : float = 200
-#The max health the enemy has got
+export var hp: float = 200
 # The move speed
 export var speed = 175
 # The distance to the target at which to stop moving
@@ -12,17 +11,22 @@ export var eps = 10
 export var draw_path = false
 # The max force of the enemy
 export var max_force = 175
+# how much money the player gets for defeating this enemy
+export var reward_money = 10
 
+# the main game tilemap
 onready var tile_map = get_tree().get_root().get_node("/root/World/TileMap")
 
 # the flow field the enemy follows
 var flow = null
-var points = []
-var max_hp : float = 0
+# The max health the enemy has got
+var max_hp: float = 0
 
 var bar_green = preload("res://images/characters/healthbars/Bar_Green_Front.png")
 var bar_yellow = preload("res://images/characters/healthbars/Bar_Yellow_Front.png")
 var bar_red = preload("res://images/characters/healthbars/Bar_Red_Front.png")
+
+signal enemy_defeated()
 
 onready var healthbar = $Health/TextureProgress
 
@@ -57,6 +61,7 @@ func _process(delta):
 		#var next_pos = world_pos.linear_interpolate(target_pos, speed * delta / dist)
 		#global_position = next_pos
 	if hp <= 0:
+		emit_signal("enemy_defeated")
 		queue_free()
 	if draw_path:
 		update()

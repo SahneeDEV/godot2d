@@ -7,6 +7,8 @@ onready var stat = preload("res://scenes/Game/Stats/Stat_BaseHealth.tscn")
 onready var stats = get_node("/root/World/GUI/GameInterface/Stats")
 var stat_instance
 
+signal game_over()
+
 func _ready():
 	stat_instance = stat.instance()
 	stats.add_child(stat_instance)
@@ -19,6 +21,8 @@ func _on_body_entered(body):
 
 func take_damage(damage):
 	self.hp -= damage
+	if hp == 0:
+		emit_signal("game_over")
 
 func _set_hp(new_hp):
 	hp = new_hp

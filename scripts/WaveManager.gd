@@ -27,6 +27,7 @@ func _ready():
 	next_wave_btn.connect("pressed", self, "_on_next_wave_btn")
 	next_wave_btn.visible = true
 	spawners = $Spawners.get_children()
+	self.connect("game_over", self, "game_over_fn")
 	for spawner in spawners:
 		spawner.connect("spawning_cleared", self, "_on_spawning_cleared", [spawner])
 
@@ -36,6 +37,9 @@ func _on_spawning_cleared(spawner):
 		toasts.show_toast("Wave " + str(wave) + " cleared!", Color(0, 1, 0))
 		next_wave_btn.visible = true
 		emit_signal("wave_cleared", wave)
+		if wave == wave_count:
+			#game is won
+			game_won()
 
 func next_wave():
 	wave += 1
@@ -52,3 +56,11 @@ func next_wave():
 
 func _on_next_wave_btn():
 	next_wave()
+	
+func game_over_fn():
+	
+	pass
+
+func game_won():
+	
+	pass

@@ -8,6 +8,7 @@
 radius = 808.867
 
 [node name="Tower" instance=ExtResource( 2 )]
+tower_name = "Asiate"
 icon = ExtResource( 3 )
 projectile = ExtResource( 1 )
 

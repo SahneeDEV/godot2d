@@ -11,5 +11,8 @@ scale = Vector2( 1.00429, 1 )
 tower_name = "Crossbow"
 projectile = ExtResource( 2 )
 
+[node name="RearmTimer" parent="." index="0"]
+wait_time = 3.0
+
 [node name="CollisionShape2D" parent="Range" index="0"]
 shape = SubResource( 1 )

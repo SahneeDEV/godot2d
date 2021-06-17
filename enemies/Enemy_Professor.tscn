@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://images/characters/professor/Running/Running_000.png" type="Texture" id=1]
 [ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://images/characters/professor/Running/Running_002.png" type="Texture" id=11]
 [ext_resource path="res://images/characters/professor/Running/Running_005.png" type="Texture" id=12]
 [ext_resource path="res://images/characters/professor/Running/Running_010.png" type="Texture" id=13]
+[ext_resource path="res://sounds/enemies/professor_defeat.ogg" type="AudioStream" id=14]
+[ext_resource path="res://sounds/enemies/professor_hurt.ogg" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,4 +31,10 @@ speed = 110
 [node name="AnimatedSprite" parent="." index="1"]
 position = Vector2( -8, -48 )
 frames = SubResource( 1 )
-frame = 1
+frame = 4
+
+[node name="Hurt" parent="." index="3"]
+stream = ExtResource( 15 )
+
+[node name="Defeated" parent="." index="4"]
+stream = ExtResource( 14 )

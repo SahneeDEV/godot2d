@@ -13,13 +13,17 @@ var placed_towers = {}
 
 # the tilemap node
 onready var tilemap: TileMap = get_node("/root/World/TileMap")
-onready var money_gui: Label = get_node("/root/World/GUI/GameInterface/Money/Label")
 onready var toasts: ToastManager = get_node("/root/World/GUI/GameInterface/ToastManager")
+onready var stat = preload("res://scenes/Game/Stats/Stat_Money.tscn")
+onready var stats = get_node("/root/World/GUI/GameInterface/Stats")
+var stat_instance
 
 # called when a tower is placed
 signal tower_placed(tower)
 
 func _ready():
+	stat_instance = stat.instance()
+	stats.add_child(stat_instance)
 	self.money = money
 	set_process(true)
 
@@ -33,11 +37,11 @@ func spawn_tower(pos):
 	var mpos = map_position(gpos)
 	var instance = selected_tower.instance()
 	if !can_afford(instance):
-		toasts.show_toast("Cannot affort this tower. You are missing " + str(instance.build_price - money) + " money.", Color(1, 0, 0))
+		toasts.show_toast("Cannot afford this tower. You are missing " + str(instance.build_price - money) + " money.", Color(1, 0, 0))
 		instance.queue_free()
 		return
 	if !is_placeable(instance, mpos, gpos, placed_towers.get(mpos), null):
-		toasts.show_toast("Cannot place on tower on this tile.", Color(1, 0, 0))
+		toasts.show_toast("Cannot place tower on this tile.", Color(1, 0, 0))
 		instance.queue_free()
 		return
 	add_child(instance)
@@ -71,5 +75,5 @@ func is_placeable(tower, map_position, global_position, current_state, cell):
 
 func _set_money(new_money):
 	money = new_money
-	money_gui.text = str(money)
+	stat_instance.get_node("./Label").text = str(money)
 	

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/professor_defeat.ogg-2dbd2d488a15306888f105218152b0ce.oggstr"
+
+[deps]
+
+source_file="res://sounds/enemies/professor_defeat.ogg"
+dest_files=[ "res://.import/professor_defeat.ogg-2dbd2d488a15306888f105218152b0ce.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -58,6 +58,11 @@ _global_script_classes=[ {
 "class": "TowerManager",
 "language": "GDScript",
 "path": "res://scripts/TowerManager.gd"
+}, {
+"base": "Node",
+"class": "WaveManager",
+"language": "GDScript",
+"path": "res://scripts/WaveManager.gd"
 } ]
 _global_script_class_icons={
 "Base": "",
@@ -69,7 +74,8 @@ _global_script_class_icons={
 "Toast": "",
 "ToastManager": "",
 "Tower": "",
-"TowerManager": ""
+"TowerManager": "",
+"WaveManager": ""
 }
 
 [application]

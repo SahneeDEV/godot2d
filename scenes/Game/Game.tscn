@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://enemies/Enemy_Professor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Enemy_Crow.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://enemies/Enemy_GrimReaper.tscn" type="PackedScene" id=13]
 [ext_resource path="res://enemies/Enemy_Wolf.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/FlowField.gd" type="Script" id=15]
+[ext_resource path="res://sounds/music/mainTheme.wav" type="AudioStream" id=16]
 [ext_resource path="res://scenes/Game/GameInterface.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -25,6 +26,10 @@ extents = Vector2( 183.723, 208.978 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="GameInterface" parent="GUI" instance=ExtResource( 17 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = -0.00012207
+margin_bottom = -0.00012207
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -45,13 +50,14 @@ __meta__ = {
 }
 
 [node name="GameCamera" parent="." instance=ExtResource( 7 )]
+position = Vector2( -7.55127, 0 )
 
 [node name="EnemySpawner3" type="Node2D" parent="."]
 script = ExtResource( 8 )
 enemies = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ]
 
 [node name="Location" type="Node2D" parent="EnemySpawner3"]
-position = Vector2( 3142.23, 2517.95 )
+position = Vector2( 701.337, 68.6122 )
 scale = Vector2( -351.152, 29.6999 )
 __meta__ = {
 "_editor_description_": ""
@@ -79,6 +85,11 @@ shape = SubResource( 1 )
 
 [node name="FlowField" type="Node" parent="."]
 script = ExtResource( 15 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -20.0
+autoplay = true
 
 [connection signal="timeout" from="EnemySpawner3/Timer" to="EnemySpawner3" method="_on_timer"]
 [connection signal="body_entered" from="Base/Area2D" to="Base" method="_on_body_entered"]

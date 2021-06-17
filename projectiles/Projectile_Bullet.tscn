@@ -3,3 +3,6 @@
 [ext_resource path="res://projectiles/Projectile.tscn" type="PackedScene" id=1]
 
 [node name="Projectile_Bullet" instance=ExtResource( 1 )]
+speed = 2500
+max_age = 5
+damage = 25

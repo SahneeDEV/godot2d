@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Game/Stats/Stat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/base_health.png" type="Texture" id=2]
+
+[node name="Stat_BaseHealth" instance=ExtResource( 1 )]
+margin_left = -0.94281
+margin_right = 137.057
+
+[node name="Icon" parent="." index="0"]
+margin_right = 16.0
+margin_bottom = 19.0
+texture = ExtResource( 2 )
+
+[node name="Name" parent="." index="1"]
+margin_left = 20.0
+margin_top = 0.0
+margin_right = 109.0
+margin_bottom = 19.0
+text = "Base Health:"
+
+[node name="Label" parent="." index="2"]
+margin_left = 113.0
+margin_top = 0.0
+margin_right = 122.0
+margin_bottom = 19.0

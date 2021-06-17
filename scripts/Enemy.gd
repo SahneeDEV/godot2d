@@ -61,6 +61,8 @@ func _process(delta):
 		#var next_pos = world_pos.linear_interpolate(target_pos, speed * delta / dist)
 		#global_position = next_pos
 	if hp <= 0:
+		$Hurt.stop()
+		$Defeated.play()
 		emit_signal("enemy_defeated")
 		queue_free()
 	if draw_path:
@@ -93,6 +95,8 @@ func apply_damage(to: Base):
 			
 func take_damage(damage):
 	hp -= damage
+	if !$Hurt.playing && !$Defeated.playing:
+		$Hurt.play()
 	set_healthbar_progress()
 	print(self.name + " took damage! " + String(hp))
 	

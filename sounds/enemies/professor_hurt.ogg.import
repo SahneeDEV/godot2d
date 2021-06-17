@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/professor_hurt.ogg-0bdb3dbd1a82f39043795e757316c296.oggstr"
+
+[deps]
+
+source_file="res://sounds/enemies/professor_hurt.ogg"
+dest_files=[ "res://.import/professor_hurt.ogg-0bdb3dbd1a82f39043795e757316c296.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,8 +1,12 @@
 extends Node
 class_name WaveManager
 
-# all waves
-export(Curve) var waves
+# the amount of waves
+export var wave_count = 10
+# the difficulty curve
+export(Curve) var difficulty
+# the weight a single spawner has, the smaller the harder multiple spawners get
+export var spawner_weight = 0.7
 
 # all spawners
 var spawners = []
@@ -36,11 +40,15 @@ func _on_spawning_cleared(spawner):
 func next_wave():
 	wave += 1
 	cleared_spawners.clear()
-	toasts.show_toast("Wave " + str(wave) + " started!", Color(0, 1, 1))
+	var x = float(wave) / float(wave_count)
+	var y = difficulty.interpolate(x)
+	print("[WaveManager] Next wave " + str(wave) + ", interpolated: (y) " + str(y) + " / (x) " + str(x))
+	var amount = 1 + int(y / (spawners.size() * spawner_weight))
+	toasts.show_toast("Wave " + str(wave) + " started with " + str(amount) + " enemies", Color(0, 1, 1))
 	next_wave_btn.visible = false
 	emit_signal("wave_started", wave)
 	for spawner in spawners:
-		spawner.spawn(5)
+		spawner.spawn(amount)
 
 func _on_next_wave_btn():
 	next_wave()

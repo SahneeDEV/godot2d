@@ -21,7 +21,7 @@
 
 [sub_resource type="Curve" id=2]
 max_value = 100.0
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.193841, 36.5031 ), 0.0, 0.0, 0, 0, Vector2( 0.29529, 30.3681 ), 0.0, 0.0, 0, 0, Vector2( 0.563406, 100 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.371377, 13.8037 ), 0.0, 0.0, 0, 0, Vector2( 0.697464, 50.6135 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 183.723, 208.978 )
@@ -59,7 +59,7 @@ position = Vector2( -7.55127, 0 )
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource( 18 )
-waves = SubResource( 2 )
+difficulty = SubResource( 2 )
 
 [node name="Spawners" type="Node" parent="WaveManager"]
 

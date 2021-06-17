@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Base.gd" type="Script" id=1]
+[ext_resource path="res://images/base/fence 1.png" type="Texture" id=2]
+[ext_resource path="res://images/base/fence 2.png" type="Texture" id=3]
+[ext_resource path="res://images/base/street lamp.png" type="Texture" id=4]
+[ext_resource path="res://images/base/House 3.png" type="Texture" id=5]
+[ext_resource path="res://images/base/Tree 1.png" type="Texture" id=6]
+[ext_resource path="res://images/base/Tree 2.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 183.723, 208.978 )
@@ -16,5 +22,77 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -11.9557, 103.197 )
 shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -103.0
+margin_top = -106.0
+margin_right = 92.0
+margin_bottom = -89.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = -108.0
+margin_top = -103.0
+margin_right = -102.0
+margin_bottom = 307.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 90.0
+margin_top = -103.0
+margin_right = 96.0
+margin_bottom = 307.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = -102.0
+margin_top = 294.0
+margin_right = 93.0
+margin_bottom = 311.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 12.368, 108.634 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -65.3268, 142.481 )
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 34.4433, -27.4028 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( -42.1356, 216.204 )
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( -56.0633, -5.33887 )
+texture = ExtResource( 6 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( -97.4434, 84.095 )
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( -20.2219, -45.3574 )
+texture = ExtResource( 7 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

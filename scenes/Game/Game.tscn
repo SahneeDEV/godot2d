@@ -19,7 +19,7 @@
 [ext_resource path="res://scenes/Game/GameInterface.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/WaveManager.gd" type="Script" id=18]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=1]
 max_value = 100.0
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
 
@@ -57,7 +57,7 @@ position = Vector2( -7.55127, 0 )
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource( 18 )
-difficulty = SubResource( 2 )
+difficulty = SubResource( 1 )
 
 [node name="Spawners" type="Node" parent="WaveManager"]
 

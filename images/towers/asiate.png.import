@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Maletraditional1.png-d3289fd4f48ba502f3530fc73af0a73a.stex"
+path="res://.import/asiate.png-edb84a7dcb2e909f502561b704e3af4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/towers/Maletraditional1.png"
-dest_files=[ "res://.import/Maletraditional1.png-d3289fd4f48ba502f3530fc73af0a73a.stex" ]
+source_file="res://images/towers/asiate.png"
+dest_files=[ "res://.import/asiate.png-edb84a7dcb2e909f502561b704e3af4e.stex" ]
 
 [params]
 

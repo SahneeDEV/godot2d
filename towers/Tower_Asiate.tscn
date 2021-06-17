@@ -2,7 +2,7 @@
 
 [ext_resource path="res://projectiles/Projectile_Spear.tscn" type="PackedScene" id=1]
 [ext_resource path="res://towers/Tower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://images/towers/Maletraditional1.png" type="Texture" id=3]
+[ext_resource path="res://images/towers/asiate.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 808.867
@@ -24,5 +24,8 @@ position = Vector2( 20.1815, 10.0907 )
 scale = Vector2( 25.1757, 25.7014 )
 
 [node name="Sprite" parent="." index="2"]
+texture = null
+
+[node name="StaticAsiatenSprite" type="Sprite" parent="." index="3"]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )

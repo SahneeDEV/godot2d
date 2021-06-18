@@ -90,7 +90,7 @@ margin_right = 1840.0
 margin_bottom = 165.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.635294, 0.635294, 0.635294, 1 )
-text = "Version 0.0.0
+text = "Version 1.0.0
 © Sahnee GbR 2021"
 
 [node name="SceneTransition" parent="." instance=ExtResource( 6 )]

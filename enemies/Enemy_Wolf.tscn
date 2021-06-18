@@ -10,7 +10,7 @@
 [ext_resource path="res://images/Wolf/__Wolf_Run_005.png" type="Texture" id=8]
 [ext_resource path="res://images/Wolf/__Wolf_Run_000.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
@@ -19,7 +19,8 @@ animations = [ {
 } ]
 
 [node name="Enemy" instance=ExtResource( 1 )]
+reward_money = 40
 
 [node name="AnimatedSprite" parent="." index="1"]
-frames = SubResource( 2 )
-frame = 7
+frames = SubResource( 1 )
+frame = 4

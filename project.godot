@@ -92,11 +92,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot 2d"
+config/name="Sahnee Godot Tower Defense 2D"
+config/description="The best tower defense game ever made by Sahnee (hint: it's the only one!)"
 run/main_scene="res://scenes/Menu/Menu.tscn"
 boot_splash/image="res://images/logo_sahne_offiziell.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.png"
+config/icon="res://images/logo_sahne_offiziell.png"
 
 [audio]
 

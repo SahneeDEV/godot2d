@@ -88,7 +88,7 @@ func take_damage(damage):
 	if !$Hurt.playing && !$Defeated.playing:
 		$Hurt.play()
 	set_healthbar_progress()
-	print(self.name + " took damage! " + String(hp))
+	print("[Enemy] " + self.name + " took damage! " + String(hp))
 	
 func is_tower_target(_tower):
 	return true

@@ -13,6 +13,7 @@ var placed_towers = {}
 
 # the tilemap node
 onready var tilemap: TileMap = get_node("/root/World/TileMap")
+onready var wave_manager: WaveManager = get_node("/root/World/WaveManager")
 onready var toasts: ToastManager = get_node("/root/World/GUI/GameInterface/ToastManager")
 onready var stat = preload("res://scenes/Game/Stats/Stat_Money.tscn")
 onready var stats = get_node("/root/World/GUI/GameInterface/Stats")
@@ -20,6 +21,8 @@ var stat_instance
 
 # called when a tower is placed
 signal tower_placed(tower)
+# called when a tower is destroyed
+signal tower_destroyed(tower)
 
 func _ready():
 	stat_instance = stat.instance()
@@ -55,8 +58,17 @@ func spawn_tower(pos):
 	var build_sound = instance.get_node("./BuildSound")
 	if build_sound != null:
 		build_sound.play()
-	self.money -= instance.build_price
 	emit_signal("tower_placed", placed_tower)
+	if !wave_manager.has_path():
+		toasts.show_toast("Cannot block enemy path.", Color(1, 0, 0))
+		placed_towers.erase(mpos)
+		instance.queue_free()
+		emit_signal("tower_destroyed", placed_tower)
+		return
+	self.money -= instance.build_price
+		
+		
+	
 		
 func can_afford(tower):
 	return money >= tower.build_price
@@ -76,4 +88,3 @@ func is_placeable(tower, map_position, global_position, current_state, cell):
 func _set_money(new_money):
 	money = new_money
 	stat_instance.get_node("./Label").text = str(money)
-	

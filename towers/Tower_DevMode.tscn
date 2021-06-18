@@ -17,6 +17,10 @@ projectile = ExtResource( 2 )
 [node name="CollisionShape2D" parent="Range" index="0"]
 shape = SubResource( 1 )
 
+[node name="Sprite" parent="Range/CollisionShape2D" index="0"]
+position = Vector2( -19.0271, 16.2007 )
+scale = Vector2( 226.872, 226.494 )
+
 [node name="Sprite" parent="." index="2"]
 scale = Vector2( 1, 1 )
 texture = null

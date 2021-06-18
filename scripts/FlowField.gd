@@ -35,6 +35,7 @@ var directions = [
 
 func _ready():
 	tower_manager.connect("tower_placed", self, "_on_tower_placed")
+	tower_manager.connect("tower_destroyed", self, "_on_tower_destroyed")
 	rebuild_grid()
 	
 func rebuild_grid():
@@ -166,6 +167,10 @@ func idx_v2(v2):
 	
 func _on_tower_placed(_tower):
 	print("[FlowField] Tower placed, rebuilding grid")
+	rebuild_grid()
+	
+func _on_tower_destroyed(_tower):
+	print("[FlowField] Tower destroyed, rebuilding grid")
 	rebuild_grid()
 
 func calculate_size():

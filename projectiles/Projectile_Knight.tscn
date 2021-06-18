@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://images/projectiles/knight1.png" type="Texture" id=1]
+[ext_resource path="res://projectiles/Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/projectiles/knight2.png" type="Texture" id=3]
+[ext_resource path="res://images/projectiles/knight3.png" type="Texture" id=4]
+[ext_resource path="res://scripts/NegateRotation.gd" type="Script" id=5]
+[ext_resource path="res://sounds/projectiles/knight.ogg" type="AudioStream" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Projectile_Knight" instance=ExtResource( 2 )]
+speed = 200
+max_age = 3
+damage = 100
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, -0.23597 )
+
+[node name="Sprite" parent="." index="1"]
+texture = null
+
+[node name="NegateRotation" type="Node2D" parent="." index="2"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NegateRotation" index="0"]
+position = Vector2( 38.8856, -31.0538 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+flip_h = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="NegateRotation" index="1"]
+position = Vector2( -6.02095, -59.6327 )
+frames = SubResource( 1 )
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="NegateRotation" index="2"]
+position = Vector2( -39.0782, -25.1612 )
+frames = SubResource( 1 )
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+flip_h = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="NegateRotation" index="3"]
+position = Vector2( 1.40367, -5.53903 )
+frames = SubResource( 1 )
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="NegateRotation" index="4"]
+position = Vector2( 42.2391, 17.6187 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+flip_h = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="NegateRotation" index="5"]
+position = Vector2( -37.6407, 20.3606 )
+frames = SubResource( 1 )
+playing = true
+offset = Vector2( -6.00514, 10.1941 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 6 )
+volume_db = -12.0
+autoplay = true

@@ -61,14 +61,22 @@ func randomize_speed(instance):
 
 func rebuild_flow():
 	flow = flow_field.path_to_world($Target.global_position.floor())
-	print("[EnemySpawner] Created new flow field to " + String($Target.name))
+	print("[EnemySpawner] Created new flow field to " + $Target.name)
 	if show_flow:
 		update()
 	# update paths of existing enemies
 	for instance in instances:
 		instance.flow = flow
+	
+func has_path():
+	var map_pos = flow_field.tile_map.world_to_map($Location.global_position)
+	var idx = int(map_pos.x * flow.size + map_pos.y)
+	var node = flow.field[idx]
+	var d = node.direction
+	return d.x != 0 || d.y != 0
 
 func _on_grid_changed():
+	print("[EnemySpawner] Grid changed, building new flow field to " + $Target.name)
 	rebuild_flow()
 
 func _draw():

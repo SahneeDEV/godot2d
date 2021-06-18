@@ -7,6 +7,8 @@
 height = 46.9559
 
 [node name="Projectile" instance=ExtResource( 1 )]
+speed = 500
+max_age = 5
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

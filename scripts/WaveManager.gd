@@ -59,11 +59,18 @@ func next_wave():
 	for spawner in spawners:
 		spawner.spawn(amount)
 
+func has_path():
+	for spawner in spawners:
+		if !spawner.has_path():
+			return false
+	return true
+
 func _on_next_wave_btn():
 	next_wave()
 	
 func _on_game_over():
 	defeat_ui.visible = true
+	next_wave_btn.visible = false
 
 func game_won():
 	var level = get_node("/root/World").game_level
@@ -73,3 +80,4 @@ func game_won():
 	save.save_data()
 	print("[WaveManager] Saved level " + str(level) + " as cleared")
 	victory_ui.visible = true
+	next_wave_btn.visible = false

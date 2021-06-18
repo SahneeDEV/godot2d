@@ -19,9 +19,11 @@ animations = [ {
 } ]
 
 [node name="Enemy" instance=ExtResource( 1 )]
+hp = 50.0
 speed = 180
+reward_money = 20
 
 [node name="AnimatedSprite" parent="." index="1"]
 position = Vector2( -40, -32 )
 frames = SubResource( 1 )
-frame = 4
+frame = 5

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/knight.ogg-dd0d901576326d9c4df6bca091829e78.oggstr"
+
+[deps]
+
+source_file="res://sounds/projectiles/knight.ogg"
+dest_files=[ "res://.import/knight.ogg-dd0d901576326d9c4df6bca091829e78.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

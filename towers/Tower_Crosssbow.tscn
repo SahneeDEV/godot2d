@@ -4,7 +4,7 @@
 [ext_resource path="res://projectiles/Projectile_Bullet.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 902.916
+radius = 1906.38
 
 [node name="Tower_Crosssbow" instance=ExtResource( 1 )]
 scale = Vector2( 1.00429, 1 )
@@ -16,3 +16,7 @@ wait_time = 3.0
 
 [node name="CollisionShape2D" parent="Range" index="0"]
 shape = SubResource( 1 )
+
+[node name="Sprite" parent="Range/CollisionShape2D" index="0"]
+position = Vector2( 10.6329, 3.30945 )
+scale = Vector2( 58.5126, 58.5073 )

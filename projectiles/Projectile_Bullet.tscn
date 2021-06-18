@@ -4,5 +4,5 @@
 
 [node name="Projectile_Bullet" instance=ExtResource( 1 )]
 speed = 2500
-max_age = 5
+max_age = 2
 damage = 25
